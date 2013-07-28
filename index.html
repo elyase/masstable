@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Masstable : The Nuclear Mass Table Toolkit" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Masstable</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/elyase/masstable">View on GitHub</a>
+
+          <h1 id="project_title">Masstable</h1>
+          <h2 id="project_tagline">The Nuclear Mass Table Toolkit</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/elyase/masstable/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/elyase/masstable/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1></h1>
+
+<h1>
+<a name="nuclear-mass-table-toolkit" class="anchor" href="#nuclear-mass-table-toolkit"><span class="octicon octicon-link"></span></a>Nuclear Mass Table Toolkit</h1>
+
+<p>The Nuclear Mass Table Toolkit provides utilities to work with nuclear mass tables. At the moment the following tables are supported:</p>
+
+<ul>
+<li>
+<strong>AME2003</strong>: G. Audi, H. Wapstra, C. Thibault, <em>Nucl. Phys. A</em> <strong>729</strong> (2003) 337</li>
+<li>
+<strong>AME2003all</strong>: Same as above but including interpolated("#") values</li>
+<li>
+<strong>AME2012</strong>: G. Audi et al, <em>Chinese Physics C.</em>  <strong>36</strong>, No. 12(2012)</li>
+<li>
+<strong>AME2012all</strong>: Same as above but including interpolated("#") values</li>
+<li>
+<strong>AME1995</strong>: Audi, G., and A. H. Wapstra, <em>Nuclear Physics A</em> <strong>595</strong> (4) (1995): 409-480</li>
+<li>
+<strong>AME1995all</strong>: Same as above but including interpolated("#") values</li>
+<li>
+<strong>DUZU</strong>: J. Duflo, A.P. Zuker, <em>Phys. Rev. C</em> <strong>52</strong> (1995)</li>
+<li>
+<strong>FRDM95</strong>: Moller, P. et al., <em>At. Data and Nuc. Data Tables</em> <strong>59</strong> (1995) 185</li>
+<li>
+<strong>KTUY05</strong>: H. Koura, T.Tachibana, M. Uno, M. Yamada, <em>Progr. Theor. Phys.</em> <strong>113</strong> (2005) 305</li>
+<li>
+<strong>ETFSI12</strong>: Y. Aboussir et al., <em>At. Data Nucl. Data Tables</em> <strong>61</strong> (1995) 127</li>
+<li>
+<strong>HFB14</strong>: S. Goriely, M. Samyn, J.M. Pearson, <em>Phys. Rev. C</em> <strong>75</strong> (2007) 064312</li>
+</ul><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage:</h2>
+
+<ul>
+<li>Print first 5 elements from Audi 2003:</li>
+</ul><div class="highlight"><pre>
+    <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2003'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    <span class="n">Z</span>  <span class="n">N</span>
+    <span class="mi">0</span>  <span class="mi">1</span>     <span class="mf">8.07132</span>
+    <span class="mi">1</span>  <span class="mi">0</span>     <span class="mf">7.28897</span>
+       <span class="mi">1</span>    <span class="mf">13.13570</span>
+       <span class="mi">2</span>    <span class="mf">14.94980</span>
+       <span class="mi">3</span>    <span class="mf">25.90150</span>
+
+
+<span class="o">*</span> <span class="n">Calculate</span> <span class="n">the</span> <span class="n">root</span> <span class="n">mean</span> <span class="n">squared</span> <span class="n">error</span> <span class="n">of</span> <span class="n">Moller</span><span class="p">,</span> <span class="n">et</span> <span class="n">al</span><span class="o">.</span> <span class="o">*</span><span class="n">Atomic</span> <span class="n">Data</span> <span class="ow">and</span> <span class="n">Nuclear</span> <span class="n">Data</span> <span class="n">Tables</span><span class="o">*</span><span class="p">,</span> <span class="o">**</span><span class="mi">59</span><span class="o">**</span> <span class="p">(</span><span class="mi">1995</span><span class="p">),</span> <span class="mi">185</span><span class="o">-</span><span class="mf">351.</span>
+
+<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'FRDM95'</span><span class="p">)</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'AME2003'</span><span class="p">)</span>
+    <span class="mf">0.890859326191</span>
+
+<span class="o">*</span> <span class="n">Calculate</span> <span class="mi">2</span> <span class="n">neutron</span> <span class="n">separation</span> <span class="n">energies</span> <span class="k">for</span> <span class="n">even</span><span class="o">-</span><span class="n">even</span> <span class="n">nuclei</span><span class="p">:</span>
+
+<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span><span class="o">.</span><span class="n">even_even</span><span class="o">.</span><span class="n">s2n</span>
+    <span class="n">Z</span>  <span class="n">N</span> 
+    <span class="mi">2</span>  <span class="mi">2</span>           <span class="n">NaN</span>
+       <span class="mi">4</span>      <span class="mf">0.975454</span>
+       <span class="mi">6</span>      <span class="mf">2.125034</span>
+       <span class="mi">8</span>     <span class="o">-</span><span class="mf">1.417666</span>
+    <span class="mi">4</span>  <span class="mi">2</span>           <span class="n">NaN</span>
+           <span class="o">...</span>
+
+<span class="o">*</span> <span class="n">Select</span> <span class="n">nuclei</span> <span class="k">with</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span> <span class="o">&gt;</span> <span class="mi">28</span><span class="p">:</span>
+
+<span class="sb">``</span><span class="err">`</span><span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">python</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">&gt;</span> <span class="mi">28</span> <span class="ow">and</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">28</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+    <span class="mi">30</span>  <span class="mi">30</span>    <span class="mf">28.016334</span>
+        <span class="mi">32</span>    <span class="mf">23.136434</span>
+        <span class="mi">34</span>    <span class="mf">20.978934</span>
+        <span class="mi">36</span>    <span class="mf">19.037934</span>
+        <span class="mi">38</span>    <span class="mf">17.250334</span>
+        <span class="mi">40</span>    <span class="mf">15.700534</span>
+           <span class="o">...</span>
+
+<span class="o">*</span> <span class="n">Plot</span> <span class="n">binding</span> <span class="n">energies</span> <span class="n">per</span> <span class="n">nucleon</span><span class="p">:</span>
+
+<span class="sb">``</span><span class="err">`</span><span class="n">python</span>
+
+    <span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span>
+    <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">binding_energy</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="err">!</span><span class="p">[</span><span class="n">binding</span> <span class="n">energies</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">i</span><span class="o">.</span><span class="n">imgur</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">eKX5S8M</span><span class="o">.</span><span class="n">png</span><span class="p">)</span>
+
+<span class="n">Install</span>
+<span class="o">--------</span>
+
+<span class="n">Just</span> <span class="n">do</span><span class="p">:</span>
+
+    <span class="n">pip</span> <span class="n">install</span> <span class="n">masstable</span>
+
+
+<span class="n">Requirements</span>
+<span class="o">-------------</span>
+
+<span class="o">*</span> <span class="n">python</span> <span class="o">&gt;=</span> <span class="mf">2.7</span>
+<span class="o">*</span> <span class="n">pandas</span> <span class="o">&gt;=</span> <span class="mf">0.11</span>
+
+
+<span class="n">Credits</span>
+<span class="o">--------</span>
+<span class="n">Yaser</span> <span class="n">Martinez</span>
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Masstable maintained by <a href="https://github.com/elyase">elyase</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-42784632-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
