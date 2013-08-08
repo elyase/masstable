@@ -41,7 +41,15 @@
 <a href="#nuclear-mass-table-toolkit">Nuclear Mass Table Toolkit</a>
 
 <ul>
-<li><a href="#usage">Usage:</a></li>
+<li>
+<a href="#usage">Usage:</a>
+
+<ul>
+<li><a href="#table%20creation">Table creation</a></li>
+<li><a href="#Selecting%20elements">Selecting elements</a></li>
+<li><a href="#derived%20quantities">Derived quantities</a></li>
+</ul>
+</li>
 <li><a href="#install">Install</a></li>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#credits">Credits</a></li>
@@ -75,6 +83,9 @@
 </ul><h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage:</h2>
 
+<h3>
+<a name="table-creation" class="anchor" href="#table-creation"><span class="octicon octicon-link"></span></a>Table creation</h3>
+
 <ul>
 <li>Print first 5 elements from Audi 2003:</li>
 </ul><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
@@ -88,13 +99,28 @@
 </pre></div>
 
 <ul>
-<li>Calculate the root mean squared error of Moller, et al. <em>Atomic Data and Nuclear Data Tables</em>, <strong>59</strong> (1995), 185-351.</li>
-</ul><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'FRDM95'</span><span class="p">)</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'AME2003'</span><span class="p">)</span>
+<li>
+<p>Create a Table object from given data:</p>
+
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">83</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="p">[</span><span class="mi">126</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">130</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">M</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">21.34</span><span class="p">,</span> <span class="o">-</span><span class="mf">18.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.45</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="o">.</span><span class="n">from_ZNM</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Custom Table'</span><span class="p">)</span>
+<span class="n">Z</span>   <span class="n">N</span>  
+<span class="mi">82</span>  <span class="mi">126</span>   <span class="o">-</span><span class="mf">21.34</span>
+<span class="mi">127</span>   <span class="o">-</span><span class="mf">18.00</span>
+<span class="mi">83</span>  <span class="mi">130</span>   <span class="o">-</span><span class="mf">14.45</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Custom</span> <span class="n">Table</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+</li>
+<li>
+<p>Calculate the root mean squared error of Moller, et al. <em>Atomic Data and Nuclear Data Tables</em>, <strong>59</strong> (1995), 185-351:</p>
+
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'FRDM95'</span><span class="p">)</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'AME2003'</span><span class="p">)</span>
 <span class="mf">0.890859326191</span>
 </pre></div>
-
-<ul>
-<li>Calculate 2 neutron separation energies for even-even nuclei:</li>
+</li>
+<li><p>Calculate 2 neutron separation energies for even-even nuclei:</p></li>
 </ul><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span><span class="o">.</span><span class="n">even_even</span><span class="o">.</span><span class="n">s2n</span>
 <span class="n">Z</span>  <span class="n">N</span> 
 <span class="mi">2</span>  <span class="mi">2</span>           <span class="n">NaN</span>
@@ -118,9 +144,26 @@
        <span class="o">...</span>
 </pre></div>
 
+<h3>
+<a name="derived-quantities" class="anchor" href="#derived-quantities"><span class="octicon octicon-link"></span></a>Derived quantities</h3>
+
 <ul>
-<li>Plot binding energies per nucleon:</li>
-</ul><div class="highlight"><pre>
+<li>The following derived quantities are available:
+
+<ul>
+<li>q_alpha: Q-value of beta decay</li>
+<li>q_beta: Q-value of beta decay</li>
+<li>s2n, s1n: Neutron separation energies
+
+<ul>
+<li>s2p, s1p: Proton separation energies</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><p>** Example: Plot binding energies per nucleon.**</p>
+
+<div class="highlight"><pre>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">binding_energy</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
