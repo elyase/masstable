@@ -79,6 +79,10 @@
 <li>
 <strong>ETFSI12</strong>: Y. Aboussir et al., <em>At. Data Nucl. Data Tables</em> <strong>61</strong> (1995) 127</li>
 <li>
+<strong>MAJA88</strong>: Masson, P. J., and J. Jänecke, <em>At. Data Nucl. Data Tables</em> <strong>39.2</strong> (1988): 273-280.</li>
+<li>
+<strong>GK88</strong>: Jänecke, J., and P. J. Masson, <em>At. Data Nucl. Data Tables</em> <strong>39.2</strong> (1988): 265-271.</li>
+<li>
 <strong>HFB14</strong>: S. Goriely, M. Samyn, J.M. Pearson, <em>Phys. Rev. C</em> <strong>75</strong> (2007) 064312</li>
 </ul><h2>
 <a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage:</h2>
@@ -87,18 +91,19 @@
 <a name="table-creation" class="anchor" href="#table-creation"><span class="octicon octicon-link"></span></a>Table creation</h3>
 
 <ul>
-<li>Print first 5 elements from Audi 2003:</li>
-</ul><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
+<li>
+<p>Print first 5 elements from Audi 2003:</p>
+
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2003'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="n">Z</span>  <span class="n">N</span>
 <span class="mi">0</span>  <span class="mi">1</span>     <span class="mf">8.07132</span>
 <span class="mi">1</span>  <span class="mi">0</span>     <span class="mf">7.28897</span>
-   <span class="mi">1</span>    <span class="mf">13.13570</span>
-   <span class="mi">2</span>    <span class="mf">14.94980</span>
-   <span class="mi">3</span>    <span class="mf">25.90150</span>
+<span class="mi">1</span>    <span class="mf">13.13570</span>
+<span class="mi">2</span>    <span class="mf">14.94980</span>
+<span class="mi">3</span>    <span class="mf">25.90150</span>
 </pre></div>
-
-<ul>
+</li>
 <li>
 <p>Create a Table object from given data:</p>
 
@@ -119,6 +124,21 @@
 <div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'FRDM95'</span><span class="p">)</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'AME2003'</span><span class="p">)</span>
 <span class="mf">0.890859326191</span>
 </pre></div>
+</li>
+<li>
+<p>Plot model divergence for <em>Z=50</em> taking <strong>DUZU</strong> as reference</p>
+
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.82</span><span class="p">,</span> <span class="mf">5.82</span><span class="o">*</span><span class="mf">0.618</span><span class="p">))</span>  <span class="c">#  golden mean</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Z_eq_50</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">==</span> <span class="mi">50</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">'AME2012'</span><span class="p">,</span><span class="s">'FRDM95'</span><span class="p">,</span> <span class="s">'KTUY05'</span><span class="p">,</span> <span class="s">'ETFSI12'</span><span class="p">,</span> <span class="s">'HFB14'</span><span class="p">,</span> <span class="s">'MAJA88'</span><span class="p">,</span> <span class="s">'GK88'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s">'s'</span><span class="p">,</span> <span class="s">'.'</span><span class="p">,</span> <span class="s">','</span><span class="p">,</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'v'</span><span class="p">,</span> <span class="s">'p'</span><span class="p">,</span> <span class="s">'*'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">,</span> <span class="s">'H'</span><span class="p">,</span> <span class="s">'+'</span><span class="p">,</span> <span class="s">'x'</span><span class="p">,</span> <span class="s">'D'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'|'</span><span class="p">,</span> <span class="s">'_'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">styles</span> <span class="o">=</span> <span class="p">[</span><span class="s">'-'</span><span class="p">,</span> <span class="s">'--'</span><span class="p">,</span> <span class="s">'-.'</span><span class="p">,</span> <span class="s">':'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+       <span class="n">Table</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'DUZU'</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">Z_eq_50</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
+           <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">styles</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="mi">4</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+
+<p><img src="http://i.imgur.com/wDMpcdl.png" alt="model_divergence"></p>
 </li>
 <li><p>Calculate 2 neutron separation energies for even-even nuclei:</p></li>
 </ul><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span><span class="o">.</span><span class="n">even_even</span><span class="o">.</span><span class="n">s2n</span>
