@@ -36,26 +36,7 @@
 <h1>
 <a name="nuclear-mass-table-toolkit" class="anchor" href="#nuclear-mass-table-toolkit"><span class="octicon octicon-link"></span></a>Nuclear Mass Table Toolkit</h1>
 
-<ul>
-<li>
-<a href="#nuclear-mass-table-toolkit">Nuclear Mass Table Toolkit</a>
-
-<ul>
-<li>
-<a href="#usage">Usage:</a>
-
-<ul>
-<li><a href="#table%20creation">Table creation</a></li>
-<li><a href="#Selecting%20elements">Selecting elements</a></li>
-<li><a href="#derived%20quantities">Derived quantities</a></li>
-</ul>
-</li>
-<li><a href="#install">Install</a></li>
-<li><a href="#requirements">Requirements</a></li>
-<li><a href="#credits">Credits</a></li>
-</ul>
-</li>
-</ul><p>The Nuclear Mass Table Toolkit provides utilities to work with nuclear mass tables. At the moment the following tables are supported:</p>
+<p>The Nuclear Mass Table Toolkit provides utilities to work with nuclear mass tables. At the moment the following tables are supported:</p>
 
 <ul>
 <li>
@@ -90,8 +71,12 @@
 <strong>WS32010</strong>: N. Wang, Z. Liang, M. Liu, X. Wu, <em>Phys. Rev. C</em> <strong>82</strong> 044304 (2010)</li>
 <li>
 <strong>WS32011</strong>: M. Liu, N. Wang, Y. Deng, X. Wu, <em>Phys. Rev. C</em> <strong>84</strong> 014333 (2011)</li>
-</ul><h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage:</h2>
+</ul><p>Full documentation: <a href="http://masstable.readthedocs.org/en/latest/">http://masstable.readthedocs.org/en/latest/</a></p>
+
+<p>Source code: <a href="https://github.com/elyase/masstable">https://github.com/elyase/masstable</a></p>
+
+<h2>
+<a name="quickstart" class="anchor" href="#quickstart"><span class="octicon octicon-link"></span></a>Quickstart:</h2>
 
 <h3>
 <a name="table-creation" class="anchor" href="#table-creation"><span class="octicon octicon-link"></span></a>Table creation</h3>
@@ -100,7 +85,7 @@
 <li>
 <p>Print first 5 elements from Audi 2003:</p>
 
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2003'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="n">Z</span>  <span class="n">N</span>
 <span class="mi">0</span>  <span class="mi">1</span>     <span class="mf">8.07132</span>
@@ -113,7 +98,7 @@
 <li>
 <p>Create a Table object from given data:</p>
 
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">83</span><span class="p">]</span>
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">83</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="p">[</span><span class="mi">126</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">130</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">M</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">21.34</span><span class="p">,</span> <span class="o">-</span><span class="mf">18.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.45</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="o">.</span><span class="n">from_ZNM</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Custom Table'</span><span class="p">)</span>
@@ -124,17 +109,65 @@
 <span class="n">Name</span><span class="p">:</span> <span class="n">Custom</span> <span class="n">Table</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 </pre></div>
 </li>
+</ul><h3>
+<a name="indexing-accessing-elements" class="anchor" href="#indexing-accessing-elements"><span class="octicon octicon-link"></span></a>Indexing, accessing elements</h3>
+
+<p>Table objects support fancy indexing. For example to list all lead(Z=82) isotopes:</p>
+
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">ame</span><span class="p">[</span><span class="mi">82</span><span class="p">,:]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span>
+          <span class="n">AME2003</span>
+<span class="n">Z</span>  <span class="n">N</span>
+<span class="mi">82</span> <span class="mi">96</span>    <span class="mf">3.567800</span>
+   <span class="mi">98</span>   <span class="o">-</span><span class="mf">1.939209</span>
+   <span class="mi">99</span>   <span class="o">-</span><span class="mf">3.144762</span>
+   <span class="mi">100</span>  <span class="o">-</span><span class="mf">6.826135</span>
+   <span class="mi">101</span>  <span class="o">-</span><span class="mf">7.568734</span>
+   <span class="mi">102</span> <span class="o">-</span><span class="mf">11.045339</span>
+   <span class="o">...</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ame</span><span class="p">[</span><span class="mi">82</span><span class="p">,</span><span class="mi">126</span><span class="p">:</span><span class="mi">128</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span>
+          <span class="n">AME2003</span>
+<span class="n">Z</span>  <span class="n">N</span>
+<span class="mi">82</span> <span class="mi">126</span> <span class="o">-</span><span class="mf">21.748455</span>
+   <span class="mi">127</span> <span class="o">-</span><span class="mf">17.614440</span>
+   <span class="mi">128</span> <span class="o">-</span><span class="mf">14.728292</span>
+</pre></div>
+
+<p>To access a simple element just do:</p>
+
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">ame</span><span class="p">[</span><span class="mi">82</span><span class="p">,</span><span class="mi">126</span><span class="p">]</span>
+    <span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span>
+          <span class="n">AME2003</span>
+<span class="n">Z</span>  <span class="n">N</span>
+<span class="mi">82</span> <span class="mi">126</span> <span class="o">-</span><span class="mf">21.748455</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME1995'</span><span class="p">)[</span><span class="mi">82</span><span class="p">,</span><span class="mi">126</span><span class="p">]</span>
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span>
+          <span class="n">AME1995</span>
+<span class="n">Z</span>  <span class="n">N</span>
+<span class="mi">82</span> <span class="mi">126</span> <span class="o">-</span><span class="mf">21.763563</span>
+</pre></div>
+
+<p>For more complicated relations the <code>select</code> method can be used. For example to select all nuclei with A &gt; 160 we can do:</p>
+
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">A_gt_160</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">+</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">160</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2003'</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">A_gt_160</span><span class="p">)</span>
+</pre></div>
+
+<ul>
 <li>
 <p>Calculate the root mean squared error of Moller, et al. <em>Atomic Data and Nuclear Data Tables</em>, <strong>59</strong> (1995), 185-351:</p>
 
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'FRDM95'</span><span class="p">)</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'AME2003'</span><span class="p">)</span>
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'FRDM95'</span><span class="p">)</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'AME2003'</span><span class="p">)</span>
 <span class="mf">0.890859326191</span>
 </pre></div>
 </li>
 <li>
 <p>Plot model divergence for <em>Z=50</em> taking <strong>DUZU</strong> as reference</p>
 
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.82</span><span class="p">,</span> <span class="mf">5.82</span><span class="o">*</span><span class="mf">0.618</span><span class="p">))</span>  <span class="c">#  golden mean</span>
+<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.82</span><span class="p">,</span> <span class="mf">5.82</span><span class="o">*</span><span class="mf">0.618</span><span class="p">))</span>  <span class="c">#  golden mean</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Z_eq_50</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">==</span> <span class="mi">50</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">'AME2012'</span><span class="p">,</span><span class="s">'FRDM95'</span><span class="p">,</span> <span class="s">'KTUY05'</span><span class="p">,</span> <span class="s">'ETFSI12'</span><span class="p">,</span> <span class="s">'HFB14'</span><span class="p">,</span> <span class="s">'MAJA88'</span><span class="p">,</span> <span class="s">'GK88'</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s">'s'</span><span class="p">,</span> <span class="s">'.'</span><span class="p">,</span> <span class="s">','</span><span class="p">,</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'v'</span><span class="p">,</span> <span class="s">'p'</span><span class="p">,</span> <span class="s">'*'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">,</span> <span class="s">'H'</span><span class="p">,</span> <span class="s">'+'</span><span class="p">,</span> <span class="s">'x'</span><span class="p">,</span> <span class="s">'D'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'|'</span><span class="p">,</span> <span class="s">'_'</span><span class="p">]</span>
@@ -147,7 +180,7 @@
 <p><img src="http://i.imgur.com/wDMpcdl.png" alt="model_divergence"></p>
 </li>
 <li><p>Calculate 2 neutron separation energies for even-even nuclei:</p></li>
-</ul><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span><span class="o">.</span><span class="n">even_even</span><span class="o">.</span><span class="n">s2n</span>
+</ul><div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span><span class="o">.</span><span class="n">even_even</span><span class="o">.</span><span class="n">s2n</span>
 <span class="n">Z</span>  <span class="n">N</span> 
 <span class="mi">2</span>  <span class="mi">2</span>           <span class="n">NaN</span>
    <span class="mi">4</span>      <span class="mf">0.975454</span>
@@ -159,7 +192,7 @@
 
 <ul>
 <li>Select nuclei with Z,N &gt; 28:</li>
-</ul><div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">&gt;</span> <span class="mi">28</span> <span class="ow">and</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">28</span>
+</ul><div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">&gt;</span> <span class="mi">28</span> <span class="ow">and</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">28</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
 <span class="mi">30</span>  <span class="mi">30</span>    <span class="mf">28.016334</span>
     <span class="mi">32</span>    <span class="mf">23.136434</span>
@@ -189,12 +222,12 @@
 </li>
 </ul><p>** Example: Plot binding energies per nucleon.**</p>
 
-<div class="highlight"><pre>
+<div class="highlight highlight-python"><pre>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">binding_energy</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 
-<p><img src="http://i.imgur.com/z29okud.png" alt="binding_energies"></p>
+<p><img src="http://i.imgur.com/EtEwXWf.png" alt="binding_energies"></p>
 
 <h2>
 <a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
