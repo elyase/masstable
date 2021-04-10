@@ -1,274 +1,566 @@
-<!DOCTYPE html>
-<html>
 
+<!doctype html>
+<html lang="en" class="no-js">
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Masstable : The Nuclear Mass Table Toolkit" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Masstable</title>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Utilities for working with nuclear mass tables">
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>masstable</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.9299cb39.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
   </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/elyase/masstable">View on GitHub</a>
-
-          <h1 id="project_title">Masstable</h1>
-          <h2 id="project_tagline">The Nuclear Mass Table Toolkit</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/elyase/masstable/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/elyase/masstable/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#masstable" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="masstable" class="md-header__button md-logo" aria-label="masstable" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1></h1>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            masstable
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              About
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/elyase/masstable" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    elyase/masstable
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-<h1>
-<a name="nuclear-mass-table-toolkit" class="anchor" href="#nuclear-mass-table-toolkit"><span class="octicon octicon-link"></span></a>Nuclear Mass Table Toolkit</h1>
 
-<p>The Nuclear Mass Table Toolkit provides utilities to work with nuclear mass tables. At the moment the following tables are supported:</p>
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="masstable" class="md-nav__button md-logo" aria-label="masstable" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
-<ul>
-<li>
-<strong>AME2003</strong>: G. Audi, H. Wapstra, C. Thibault, <em>Nucl. Phys. A</em> <strong>729</strong> (2003) 337</li>
-<li>
-<strong>AME2003all</strong>: Same as above but including interpolated("#") values</li>
-<li>
-<strong>AME2012</strong>: G. Audi et al, <em>Chinese Physics C.</em>  <strong>36</strong>, No. 12(2012)</li>
-<li>
-<strong>AME2012all</strong>: Same as above but including interpolated("#") values</li>
-<li>
-<strong>AME1995</strong>: Audi, G., and A. H. Wapstra, <em>Nuclear Physics A</em> <strong>595</strong> (4) (1995): 409-480</li>
-<li>
-<strong>AME1995all</strong>: Same as above but including interpolated("#") values</li>
-<li>
-<strong>DUZU</strong>: J. Duflo, A.P. Zuker, <em>Phys. Rev. C</em> <strong>52</strong> (1995)</li>
-<li>
-<strong>FRDM95</strong>: Moller, P. et al., <em>At. Data and Nuc. Data Tables</em> <strong>59</strong> (1995) 185</li>
-<li>
-<strong>KTUY05</strong>: H. Koura, T.Tachibana, M. Uno, M. Yamada, <em>Progr. Theor. Phys.</em> <strong>113</strong> (2005) 305</li>
-<li>
-<strong>ETFSI12</strong>: Y. Aboussir et al., <em>At. Data Nucl. Data Tables</em> <strong>61</strong> (1995) 127</li>
-<li>
-<strong>MAJA88</strong>: Masson, P. J., and J. Jänecke, <em>Atomic Data and Nuclear Data Tables</em> <strong>39.2</strong> (1988): 273-280.</li>
-<li>
-<strong>GK88</strong>: Jänecke, J., and P. J. Masson, <em>Atomic Data and Nuclear Data Tables</em> <strong>39.2</strong> (1988): 265-271.</li>
-<li>
-<strong>HFB14</strong>: S. Goriely, M. Samyn, J.M. Pearson, <em>Phys. Rev. C</em> <strong>75</strong> 064312 (2007)</li>
-<li>
-<strong>HFB26</strong>: S. Goriely, N. Chamel, J.M. Pearson, <em>Phys. Rev. C</em> <strong>88</strong> 024308 (2013)</li>
-<li>
-<strong>WS32010</strong>: N. Wang, Z. Liang, M. Liu, X. Wu, <em>Phys. Rev. C</em> <strong>82</strong> 044304 (2010)</li>
-<li>
-<strong>WS32011</strong>: M. Liu, N. Wang, Y. Deng, X. Wu, <em>Phys. Rev. C</em> <strong>84</strong> 014333 (2011)</li>
-</ul><p>Full documentation: <a href="http://masstable.readthedocs.org/en/latest/">http://masstable.readthedocs.org/en/latest/</a></p>
+    </a>
+    masstable
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/elyase/masstable" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    elyase/masstable
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
 
-<p>Source code: <a href="https://github.com/elyase/masstable">https://github.com/elyase/masstable</a></p>
-
-<h2>
-<a name="quickstart" class="anchor" href="#quickstart"><span class="octicon octicon-link"></span></a>Quickstart:</h2>
-
-<h3>
-<a name="table-creation" class="anchor" href="#table-creation"><span class="octicon octicon-link"></span></a>Table creation</h3>
-
-<ul>
-<li>
-<p>Print first 5 elements from Audi 2003:</p>
-
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2003'</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="n">Z</span>  <span class="n">N</span>
-<span class="mi">0</span>  <span class="mi">1</span>     <span class="mf">8.07132</span>
-<span class="mi">1</span>  <span class="mi">0</span>     <span class="mf">7.28897</span>
-<span class="mi">1</span>    <span class="mf">13.13570</span>
-<span class="mi">2</span>    <span class="mf">14.94980</span>
-<span class="mi">3</span>    <span class="mf">25.90150</span>
-</pre></div>
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        About
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-table" class="md-nav__link">
+    Create a table
+  </a>
+  
 </li>
-<li>
-<p>Create a Table object from given data:</p>
-
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">83</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">N</span> <span class="o">=</span> <span class="p">[</span><span class="mi">126</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">130</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">M</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">21.34</span><span class="p">,</span> <span class="o">-</span><span class="mf">18.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">14.45</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="o">.</span><span class="n">from_ZNM</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">'Custom Table'</span><span class="p">)</span>
-<span class="n">Z</span>   <span class="n">N</span>  
-<span class="mi">82</span>  <span class="mi">126</span>   <span class="o">-</span><span class="mf">21.34</span>
-<span class="mi">127</span>   <span class="o">-</span><span class="mf">18.00</span>
-<span class="mi">83</span>  <span class="mi">130</span>   <span class="o">-</span><span class="mf">14.45</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Custom</span> <span class="n">Table</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
-</pre></div>
+      
+        <li class="md-nav__item">
+  <a href="#supported-tables" class="md-nav__link">
+    Supported tables
+  </a>
+  
 </li>
-</ul><h3>
-<a name="indexing-accessing-elements" class="anchor" href="#indexing-accessing-elements"><span class="octicon octicon-link"></span></a>Indexing, accessing elements</h3>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-tables" class="md-nav__link">
+    Inspecting tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-accessing-elements" class="md-nav__link">
+    Indexing, accessing elements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convenience-methods" class="md-nav__link">
+    Convenience methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separation-energies" class="md-nav__link">
+    Separation energies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotting" class="md-nav__link">
+    Plotting
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
 
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-table" class="md-nav__link">
+    Create a table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-tables" class="md-nav__link">
+    Supported tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-tables" class="md-nav__link">
+    Inspecting tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indexing-accessing-elements" class="md-nav__link">
+    Indexing, accessing elements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convenience-methods" class="md-nav__link">
+    Convenience methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#separation-energies" class="md-nav__link">
+    Separation energies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plotting" class="md-nav__link">
+    Plotting
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="masstable">masstable<a class="headerlink" href="#masstable" title="Permanent link">&para;</a></h1>
+<p>Utilities for working with nuclear mass tables</p>
+<h3 id="create-a-table">Create a table<a class="headerlink" href="#create-a-table" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">masstable</span> <span class="kn">import</span> <span class="n">Table</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ame</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s1">&#39;AME2003&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="supported-tables">Supported tables<a class="headerlink" href="#supported-tables" title="Permanent link">&para;</a></h3>
+<p>To access the list of supported tables:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; Table.names
+Out[2]:
+[&#39;AME2003&#39;,
+ &#39;AME2003all&#39;,
+ &#39;AME2012&#39;,
+ &#39;AME2012all&#39;,
+ &#39;AME1995&#39;,
+ &#39;AME1995all&#39;,
+ &#39;DUZU&#39;,
+ &#39;FRDM95&#39;,
+ &#39;KTUY05&#39;,
+ &#39;ETFSI12&#39;,
+ &#39;HFB14&#39;,
+ &#39;HFB26&#39;,
+ &#39;TCSM12&#39;,
+ &#39;BR2013&#39;,
+ &#39;MAJA88&#39;,
+ &#39;GK88&#39;,
+ &#39;WS32010&#39;,
+ &#39;WS32011&#39;,
+ &#39;SVM13&#39;]
+</code></pre></div>
+
+<h3 id="inspecting-tables">Inspecting tables<a class="headerlink" href="#inspecting-tables" title="Permanent link">&para;</a></h3>
+<p>To view the beginning or the end sample of Table object, use the <code>head</code> and
+<code>tail</code> methods. The default number of elements to display is five, but you
+may pass a custom number same as in pandas:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; ame.head()
+Out[4]:
+Z  N
+0  1     8.071317
+1  0     7.288970
+   1    13.135722
+   2    14.949806
+2  1    14.931215
+Name: AME2003, dtype: float64
+
+&gt;&gt;&gt; ame.tail(3)
+Out[5]:
+Z    N
+104  157    101.315395
+108  156    119.599066
+106  159    112.817611
+Name: AME2003, dtype: float64
+</code></pre></div>
+
+<h3 id="indexing-accessing-elements">Indexing, accessing elements<a class="headerlink" href="#indexing-accessing-elements" title="Permanent link">&para;</a></h3>
 <p>Table objects support fancy indexing. For example to list all lead(Z=82) isotopes:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; ame[82,:]
+Out[7]:
+          AME2003
+Z  N
+82 96    3.567800
+   98   -1.939209
+   99   -3.144762
+   100  -6.826135
+   101  -7.568734
+   102 -11.045339
+   ...
 
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">ame</span><span class="p">[</span><span class="mi">82</span><span class="p">,:]</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">7</span><span class="p">]:</span>
-          <span class="n">AME2003</span>
-<span class="n">Z</span>  <span class="n">N</span>
-<span class="mi">82</span> <span class="mi">96</span>    <span class="mf">3.567800</span>
-   <span class="mi">98</span>   <span class="o">-</span><span class="mf">1.939209</span>
-   <span class="mi">99</span>   <span class="o">-</span><span class="mf">3.144762</span>
-   <span class="mi">100</span>  <span class="o">-</span><span class="mf">6.826135</span>
-   <span class="mi">101</span>  <span class="o">-</span><span class="mf">7.568734</span>
-   <span class="mi">102</span> <span class="o">-</span><span class="mf">11.045339</span>
-   <span class="o">...</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">ame</span><span class="p">[</span><span class="mi">82</span><span class="p">,</span><span class="mi">126</span><span class="p">:</span><span class="mi">128</span><span class="p">]</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">8</span><span class="p">]:</span>
-          <span class="n">AME2003</span>
-<span class="n">Z</span>  <span class="n">N</span>
-<span class="mi">82</span> <span class="mi">126</span> <span class="o">-</span><span class="mf">21.748455</span>
-   <span class="mi">127</span> <span class="o">-</span><span class="mf">17.614440</span>
-   <span class="mi">128</span> <span class="o">-</span><span class="mf">14.728292</span>
-</pre></div>
+&gt;&gt;&gt; ame[82,126:128]
+Out[8]:
+          AME2003
+Z  N
+82 126 -21.748455
+   127 -17.614440
+   128 -14.728292
+</code></pre></div>
 
 <p>To access a simple element just do:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; ame[82,126]
+    Out[9]:
+          AME2003
+Z  N
+82 126 -21.748455
 
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">ame</span><span class="p">[</span><span class="mi">82</span><span class="p">,</span><span class="mi">126</span><span class="p">]</span>
-    <span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span>
-          <span class="n">AME2003</span>
-<span class="n">Z</span>  <span class="n">N</span>
-<span class="mi">82</span> <span class="mi">126</span> <span class="o">-</span><span class="mf">21.748455</span>
-
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME1995'</span><span class="p">)[</span><span class="mi">82</span><span class="p">,</span><span class="mi">126</span><span class="p">]</span>
-<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span>
-          <span class="n">AME1995</span>
-<span class="n">Z</span>  <span class="n">N</span>
-<span class="mi">82</span> <span class="mi">126</span> <span class="o">-</span><span class="mf">21.763563</span>
-</pre></div>
+&gt;&gt;&gt; Table(&#39;AME1995&#39;)[82,126]
+Out[11]:
+          AME1995
+Z  N
+82 126 -21.763563
+</code></pre></div>
 
 <p>For more complicated relations the <code>select</code> method can be used. For example to select all nuclei with A &gt; 160 we can do:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; A_gt_160 = lambda Z,N: Z + N &gt; 160
+&gt;&gt;&gt; Table(&#39;AME2003&#39;).select(A_gt_160)
+</code></pre></div>
 
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">A_gt_160</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">+</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">160</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2003'</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">A_gt_160</span><span class="p">)</span>
-</pre></div>
+<h3 id="convenience-methods">Convenience methods<a class="headerlink" href="#convenience-methods" title="Permanent link">&para;</a></h3>
+<p>Calculate the root mean squared error of Möller, et al. <em>Atomic Data and Nuclear Data Tables</em>, <strong>59</strong> (1995), 185-351:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;FRDM95&#39;).rmse(relative_to=&#39;AME2003&#39;)
+0.890859326191
+&gt;&gt;&gt; Table(&#39;FRDM95&#39;)[8:,8:].rmse()
+0.6555037788616391
+</code></pre></div>
 
+<p>Find the first odd-odd nuclei of Möller's mass table:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;FRDM95&#39;).odd_odd
+Out[13]:
+Z   N
+9   9       1.21
+    11      0.10
+    13      3.08
+    15      9.32
+...
+</code></pre></div>
+
+<p>You can access the whole list of Z, N or A in a Table object via <code>ame.Z</code>, <code>ame.A</code>, etc.</p>
+<h3 id="separation-energies">Separation energies<a class="headerlink" href="#separation-energies" title="Permanent link">&para;</a></h3>
+<p>The following derived quantities are available:</p>
 <ul>
-<li>
-<p>Calculate the root mean squared error of Moller, et al. <em>Atomic Data and Nuclear Data Tables</em>, <strong>59</strong> (1995), 185-351:</p>
-
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s">'FRDM95'</span><span class="p">)</span><span class="o">.</span><span class="n">rmse</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'AME2003'</span><span class="p">)</span>
-<span class="mf">0.890859326191</span>
-</pre></div>
-</li>
-<li>
-<p>Plot model divergence for <em>Z=50</em> taking <strong>DUZU</strong> as reference</p>
-
-<div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.82</span><span class="p">,</span> <span class="mf">5.82</span><span class="o">*</span><span class="mf">0.618</span><span class="p">))</span>  <span class="c">#  golden mean</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">Z_eq_50</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">==</span> <span class="mi">50</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">'AME2012'</span><span class="p">,</span><span class="s">'FRDM95'</span><span class="p">,</span> <span class="s">'KTUY05'</span><span class="p">,</span> <span class="s">'ETFSI12'</span><span class="p">,</span> <span class="s">'HFB14'</span><span class="p">,</span> <span class="s">'MAJA88'</span><span class="p">,</span> <span class="s">'GK88'</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s">'s'</span><span class="p">,</span> <span class="s">'.'</span><span class="p">,</span> <span class="s">','</span><span class="p">,</span> <span class="s">'o'</span><span class="p">,</span> <span class="s">'v'</span><span class="p">,</span> <span class="s">'p'</span><span class="p">,</span> <span class="s">'*'</span><span class="p">,</span> <span class="s">'h'</span><span class="p">,</span> <span class="s">'H'</span><span class="p">,</span> <span class="s">'+'</span><span class="p">,</span> <span class="s">'x'</span><span class="p">,</span> <span class="s">'D'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> <span class="s">'|'</span><span class="p">,</span> <span class="s">'_'</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">styles</span> <span class="o">=</span> <span class="p">[</span><span class="s">'-'</span><span class="p">,</span> <span class="s">'--'</span><span class="p">,</span> <span class="s">'-.'</span><span class="p">,</span> <span class="s">':'</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
-       <span class="n">Table</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="s">'DUZU'</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">Z_eq_50</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
-           <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">styles</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="mi">4</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">legend</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-</pre></div>
-
-<p><img src="http://i.imgur.com/wDMpcdl.png" alt="model_divergence"></p>
-</li>
-<li><p>Calculate 2 neutron separation energies for even-even nuclei:</p></li>
-</ul><div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span><span class="o">.</span><span class="n">even_even</span><span class="o">.</span><span class="n">s2n</span>
-<span class="n">Z</span>  <span class="n">N</span> 
-<span class="mi">2</span>  <span class="mi">2</span>           <span class="n">NaN</span>
-   <span class="mi">4</span>      <span class="mf">0.975454</span>
-   <span class="mi">6</span>      <span class="mf">2.125034</span>
-   <span class="mi">8</span>     <span class="o">-</span><span class="mf">1.417666</span>
-<span class="mi">4</span>  <span class="mi">2</span>           <span class="n">NaN</span>
-       <span class="o">...</span>
-</pre></div>
-
-<ul>
-<li>Select nuclei with Z,N &gt; 28:</li>
-</ul><div class="highlight highlight-python"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">condition</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">Z</span><span class="p">,</span><span class="n">N</span><span class="p">:</span> <span class="n">Z</span> <span class="o">&gt;</span> <span class="mi">28</span> <span class="ow">and</span> <span class="n">N</span> <span class="o">&gt;</span> <span class="mi">28</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">table</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span>
-<span class="mi">30</span>  <span class="mi">30</span>    <span class="mf">28.016334</span>
-    <span class="mi">32</span>    <span class="mf">23.136434</span>
-    <span class="mi">34</span>    <span class="mf">20.978934</span>
-    <span class="mi">36</span>    <span class="mf">19.037934</span>
-    <span class="mi">38</span>    <span class="mf">17.250334</span>
-    <span class="mi">40</span>    <span class="mf">15.700534</span>
-       <span class="o">...</span>
-</pre></div>
-
-<h3>
-<a name="derived-quantities" class="anchor" href="#derived-quantities"><span class="octicon octicon-link"></span></a>Derived quantities</h3>
-
-<ul>
-<li>The following derived quantities are available:
-
-<ul>
-<li>q_alpha: Q-value of beta decay</li>
-<li>q_beta: Q-value of beta decay</li>
-<li>s2n, s1n: Neutron separation energies
-
-<ul>
-<li>s2p, s1p: Proton separation energies</li>
+<li><code>q_alpha</code>: Q-value of beta decay</li>
+<li><code>q_beta</code>: Q-value of beta decay</li>
+<li><code>s2n</code>, <code>s1n</code>: Neutron separation energies</li>
+<li><code>s2p</code>, <code>s1p</code>: Proton separation energies</li>
 </ul>
-</li>
-</ul>
-</li>
-</ul><p>** Example: Plot binding energies per nucleon.**</p>
+<p>For example:</p>
+<div class="codehilite"><pre><span></span><code>&gt;&gt;&gt; duzu = Table(&#39;DUZU&#39;)
+&gt;&gt;&gt; duzu.s2n.tail()
+Out[29]:
+Z    N
+119  179    13.412634
+120  178    14.282634
+121  177    15.222634
+122  176    16.122634
+123  175          NaN
+Name: s2n(DUZU), dtype: float64
+</code></pre></div>
 
-<div class="highlight highlight-python"><pre>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">'AME2012'</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">binding_energy</span><span class="o">/</span><span class="n">t</span><span class="o">.</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
+<h3 id="plotting">Plotting<a class="headerlink" href="#plotting" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<p><img src="http://i.imgur.com/EtEwXWf.png" alt="binding_energies"></p>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s1">&#39;FRDM95&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">error</span><span class="p">()</span><span class="o">.</span><span class="n">chart_plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
 
-<h2>
-<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+<p><img alt="" src="plotting.png" title="Error chart" /></p>
+                
+              
+              
+                
 
-<p>Just do:</p>
 
-<pre><code>pip install masstable
-</code></pre>
-
-<h2>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
-
-<ul>
-<li>python &gt;= 2.7</li>
-<li>pandas &gt;= 0.11</li>
-</ul><h2>
-<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
-
-<p>Yaser Martinez</p>
-      </section>
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Masstable maintained by <a href="https://github.com/elyase">elyase</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
+  </div>
+</footer>
+      
     </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-42784632-1");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.7353b375.min.js"></script>
+      
+    
   </body>
 </html>
