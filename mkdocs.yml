@@ -1,0 +1,25 @@
+site_name: masstable
+site_description: Utilities for working with nuclear mass tables
+
+theme:
+  name: material
+  palette:
+    primary: black
+    accent: blue
+
+repo_name: elyase/masstable
+repo_url: https://github.com/elyase/masstable
+edit_uri: ""
+
+markdown_extensions:
+  - markdown_include.include:
+      base_path: docs
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.tasklist
+
+nav:
+  - About: index.md

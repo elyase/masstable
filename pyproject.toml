@@ -1,0 +1,25 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "masstable"
+dist-name = "masstable"
+author = "Yaser Martinez Palenzuela"
+author-email = "yaser.martinez@gmail.com"
+home-page = "https://github.com/elyase/masstable"
+classifiers = [
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3 :: Only",
+]
+description-file = "README.md"
+requires-python = ">=3.7"
+requires = [
+    "pandas>=1.2.3"
+]
+
+[tool.flit.metadata.requires-extra]
+
+[tool.flit.metadata.urls]
+Documentation = "https://elyase.github.io/masstable/"
