@@ -463,6 +463,16 @@ Z  N
 Z  N
 82 126 -21.763563
 </code></pre></div>
+<p>You can also pass a list. To return the binding energies at magic nuclei:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; magic_nuclei = [(20,28), (50,50), (50,82), (82,126)]
+&gt;&gt;&gt; Table(&#39;AME2012&#39;).binding_energy[magic_nuclei]
+Z   N
+20  28      416.014215
+50  50      825.325172
+    82     1102.876416
+82  126    1636.486450
+Name: AME2012, dtype: float64
+</code></pre></div>
 <p>For more complicated relations the <code>select</code> method can be used. For example to select all nuclei with A &gt; 160 we can do:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; A_gt_160 = lambda Z,N: Z + N &gt; 160
 &gt;&gt;&gt; Table(&#39;AME2003&#39;).select(A_gt_160)
