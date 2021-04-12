@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+from __future__ import annotations
 
 import pandas as pd
 import os
 import math
 import functools
 from functools import wraps
+from typing import Callable, List, Tuple
 
 package_dir, _ = os.path.split(__file__)
 
@@ -23,7 +25,7 @@ def memoize(obj):
 
 
 class Table:
-    def __init__(self, name="", df=None):
+    def __init__(self, name: str="", df: pd.DataFrame=None):
         "Init from a Series/Dataframe (df) of a file (name)"
         if df is not None:  # init from dataframe
             self.df = df
@@ -75,13 +77,13 @@ class Table:
         return cls._names
 
     @classmethod
-    def from_name(cls, name):
+    def from_name(cls, name: str):
         "Imports a mass table from a file"
         filename = os.path.join(package_dir, "data", name + ".txt")
         return cls.from_file(filename, name)
 
     @classmethod
-    def from_file(cls, filename, name=""):
+    def from_file(cls, filename: str, name: str=""):
         "Imports a mass table from a file"
 
         df = pd.read_csv(filename, header=0, delim_whitespace=True, index_col=[0, 1])[
@@ -117,19 +119,16 @@ class Table:
         Z, N, M = arr.T
         return cls.from_ZNM(Z, N, M, name)
 
-    def to_file(self, path):
+    def to_file(self, path: str):
         """Export the contents to a file as comma separated values.
 
         Parameters:
+            path : File path where the data should be saved to
 
-            path : string
-                File path where the data should be saved to
+        Example:
+            Export the last ten elements of AME2012 to a new file:
 
-        Example
-        -------
-        Export the last ten elements of AME2012 to a new file:
-
-            >>> Table('AME2012').tail(10).to_file('last_ten.txt')
+                >>> Table('AME2012').tail(10).to_file('last_ten.txt')
         """
         with open(path, "w") as f:
             f.write("Z   N   M\n")
@@ -205,7 +204,7 @@ class Table:
             df = x.set_index(["Z", "N"]).sort_index(0)
             return Table(df=df[df.columns[0]], name=self.name)
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: int, value:int) -> None:
         Z = key[0]
         N = key[1]
         self.df.loc[(Z, N)] = value
@@ -248,24 +247,24 @@ class Table:
         result = self.df.align(*args, **kwargs)[0]
         return Table(result.name, result)
 
-    def select(self, condition, name=""):
+    def select(self, condition: Callable, name: str ="") -> Table:
         """
         Selects nuclei according to a condition on Z,N or M
 
         Parameters:
 
-            condition: function
+            condition:
                 Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)
                 must return a boolean value
-            name: string
+            name:
                 optional name for the resulting Table
 
         Example:
-        --------
-        Select all nuclei with A > 160:
 
-            >>> A_gt_160 = lambda Z,N: Z + N > 160
-            >>> Table('AME2003').select(A_gt_160)
+            Select all nuclei with A > 160:
+
+                >>> A_gt_160 = lambda Z,N: Z + N > 160
+                >>> Table('AME2003').select(A_gt_160)
         """
         if condition.__code__.co_argcount == 1:
             idx = [(Z, N) for (Z, N), M in self if condition(M)]
@@ -276,7 +275,7 @@ class Table:
         index = pd.MultiIndex.from_tuples(idx, names=["Z", "N"])
         return Table(df=self.df.loc[index], name=name)
 
-    def at(self, nuclei):
+    def at(self, nuclei: List[Tuple[int, int]]) -> Table:
         """Return a selection of the Table at positions given by ``nuclei``
 
         Parameters:
@@ -300,7 +299,7 @@ class Table:
         return Table(df=self.df.loc[index], name=self.name)
 
     @classmethod
-    def empty(cls, name=""):
+    def empty(cls, name:str ="") -> Table:
         return cls(df=pd.DataFrame(index=[], columns=[]), name=name)
 
     def __len__(self):
@@ -315,11 +314,10 @@ class Table:
         return len(self.df)
 
     @property
-    def count(self):
+    def count(self) -> int:
         """Return the total number of nuclei in the table
 
-        Example
-        -------
+        Example:
 
             >>> Table('AME2012').count
             2438
@@ -331,14 +329,13 @@ class Table:
         """
         return len(self.df)
 
-    def intersection(self, table):
+    def intersection(self, table: Table) -> Table:
         """
         Select nuclei which also belong to ``table``
 
         Parameters:
 
-            table: Table
-                Table object
+            table: a Table object
 
         Example
         -------
@@ -348,7 +345,7 @@ class Table:
         idx = self.df.index.intersection(table.df.index)
         return Table(df=self.df[idx], name=self.name)
 
-    def not_in(self, table):
+    def not_in(self, table: Table) -> Table:
         """
         Select nuclei not in table
 
@@ -384,7 +381,7 @@ class Table:
 
     @property
     @memoize
-    def odd_even(self):
+    def odd_even(self) -> Table:
         """
         Selects odd-even nuclei from the table
         """
@@ -406,14 +403,13 @@ class Table:
         """
         return self.select(lambda Z, N: not (Z % 2) and not (N % 2), name=self.name)
 
-    def error(self, relative_to="AME2003"):
+    def error(self, relative_to:str ="AME2003") -> Table:
         """
         Calculate error difference
 
         Parameters:
         
-            relative_to: string
-                a valid mass table name
+            relative_to: a valid mass table name
 
         Example
         -------
@@ -429,16 +425,14 @@ class Table:
         df = self.df - Table(relative_to).df
         return Table(df=df)
 
-    def rmse(self, relative_to="AME2003"):
+    def rmse(self, relative_to:str="AME2003"):
         """Calculate root mean squared error
 
         Parameters:
 
-            relative_to: string,
-                a valid mass table name.
+            relative_to: a valid mass table name.
 
         Example
-        -------
 
             >>> template = '{0:10}|{1:^6.2f}|{2:^6.2f}|{3:^6.2f}'
             >>> print('Model      ', 'AME95 ', 'AME03 ', 'AME12 ')  #  Table header
@@ -508,7 +502,7 @@ class Table:
 
     @property
     @memoize
-    def s1n(self):
+    def s1n(self) -> Table:
         """Return 1 neutron separation energy"""
 
         M_N = 8.0713171  # neutron mass excess in MeV
@@ -533,7 +527,7 @@ class Table:
         f = lambda parent, daugther: -parent + daugther + M_P
         return self.derived("s1p", (-1, 0), f)
 
-    def derived(self, name, relative_coords, formula):
+    def derived(self, name:str, relative_coords:Tuple[int, int], formula: Callable):
         """Helper function for derived quantities"""
 
         dZ, dN = relative_coords
@@ -588,12 +582,12 @@ class Table:
     def chart_plot(
         self,
         ax=None,
-        cmap="RdBu",
-        xlabel="N",
-        ylabel="Z",
-        grid_on=True,
-        colorbar=True,
-        save_path=None,
+        cmap:str="RdBu",
+        xlabel:str="N",
+        ylabel:str="Z",
+        grid_on:bool=True,
+        colorbar:bool =True,
+        save_path:str =None,
     ):
         """Plot a nuclear chart with (N,Z) as axis and the values
         of the Table as a color scale
@@ -608,7 +602,7 @@ class Table:
                 default: 'N'
             ylabel: string, default: 'Z'
                 the label of the x axis
-            grid_on: boolean, default: True,
+            grid_on: (boolean), default: True,
                 whether to draw the axes grid or not
             colorbar: boolean, default: True
                 whether to draw a colorbar or not
