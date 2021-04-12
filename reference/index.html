@@ -1,0 +1,2650 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Utilities for working with nuclear mass tables">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>Reference - masstable</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.9299cb39.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="blue">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#masstable.masstable.Table" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="masstable" class="md-header__button md-logo" aria-label="masstable" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            masstable
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/elyase/masstable/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    elyase/masstable
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="masstable" class="md-nav__button md-logo" aria-label="masstable" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    masstable
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/elyase/masstable/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    elyase/masstable
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Quick start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Reference
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table" class="md-nav__link">
+    masstable.masstable.Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.A" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.binding_energy" class="md-nav__link">
+    binding_energy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.count" class="md-nav__link">
+    count
+  </a>
+  
+    <nav class="md-nav" aria-label="count">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.count--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.ds2n" class="md-nav__link">
+    ds2n
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.ds2p" class="md-nav__link">
+    ds2p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.even_even" class="md-nav__link">
+    even_even
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.even_odd" class="md-nav__link">
+    even_odd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.N" class="md-nav__link">
+    N
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.odd_even" class="md-nav__link">
+    odd_even
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.odd_odd" class="md-nav__link">
+    odd_odd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.q_alpha" class="md-nav__link">
+    q_alpha
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.q_beta" class="md-nav__link">
+    q_beta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s1n" class="md-nav__link">
+    s1n
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s1p" class="md-nav__link">
+    s1p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s2n" class="md-nav__link">
+    s2n
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s2p" class="md-nav__link">
+    s2p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.Z" class="md-nav__link">
+    Z
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__getattr__" class="md-nav__link">
+    __getattr__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__getitem__" class="md-nav__link">
+    __getitem__()
+  </a>
+  
+    <nav class="md-nav" aria-label="__getitem__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__getitem__--examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__len__" class="md-nav__link">
+    __len__()
+  </a>
+  
+    <nav class="md-nav" aria-label="__len__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__len__--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.at" class="md-nav__link">
+    at()
+  </a>
+  
+    <nav class="md-nav" aria-label="at()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.at--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.chart_plot" class="md-nav__link">
+    chart_plot()
+  </a>
+  
+    <nav class="md-nav" aria-label="chart_plot()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.chart_plot--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.derived" class="md-nav__link">
+    derived()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.error" class="md-nav__link">
+    error()
+  </a>
+  
+    <nav class="md-nav" aria-label="error()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.error--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.from_file" class="md-nav__link">
+    from_file()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.from_name" class="md-nav__link">
+    from_name()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.from_ZNM" class="md-nav__link">
+    from_ZNM()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.intersection" class="md-nav__link">
+    intersection()
+  </a>
+  
+    <nav class="md-nav" aria-label="intersection()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.intersection--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.names" class="md-nav__link">
+    names()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.not_in" class="md-nav__link">
+    not_in()
+  </a>
+  
+    <nav class="md-nav" aria-label="not_in()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.not_in--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.rmse" class="md-nav__link">
+    rmse()
+  </a>
+  
+    <nav class="md-nav" aria-label="rmse()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.rmse--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.select" class="md-nav__link">
+    select()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.to_file" class="md-nav__link">
+    to_file()
+  </a>
+  
+    <nav class="md-nav" aria-label="to_file()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.to_file--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table" class="md-nav__link">
+    masstable.masstable.Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.A" class="md-nav__link">
+    A
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.binding_energy" class="md-nav__link">
+    binding_energy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.count" class="md-nav__link">
+    count
+  </a>
+  
+    <nav class="md-nav" aria-label="count">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.count--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.ds2n" class="md-nav__link">
+    ds2n
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.ds2p" class="md-nav__link">
+    ds2p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.even_even" class="md-nav__link">
+    even_even
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.even_odd" class="md-nav__link">
+    even_odd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.N" class="md-nav__link">
+    N
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.odd_even" class="md-nav__link">
+    odd_even
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.odd_odd" class="md-nav__link">
+    odd_odd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.q_alpha" class="md-nav__link">
+    q_alpha
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.q_beta" class="md-nav__link">
+    q_beta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s1n" class="md-nav__link">
+    s1n
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s1p" class="md-nav__link">
+    s1p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s2n" class="md-nav__link">
+    s2n
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.s2p" class="md-nav__link">
+    s2p
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.Z" class="md-nav__link">
+    Z
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__getattr__" class="md-nav__link">
+    __getattr__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__getitem__" class="md-nav__link">
+    __getitem__()
+  </a>
+  
+    <nav class="md-nav" aria-label="__getitem__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__getitem__--examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__len__" class="md-nav__link">
+    __len__()
+  </a>
+  
+    <nav class="md-nav" aria-label="__len__()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.__len__--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.at" class="md-nav__link">
+    at()
+  </a>
+  
+    <nav class="md-nav" aria-label="at()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.at--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.chart_plot" class="md-nav__link">
+    chart_plot()
+  </a>
+  
+    <nav class="md-nav" aria-label="chart_plot()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.chart_plot--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.derived" class="md-nav__link">
+    derived()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.error" class="md-nav__link">
+    error()
+  </a>
+  
+    <nav class="md-nav" aria-label="error()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.error--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.from_file" class="md-nav__link">
+    from_file()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.from_name" class="md-nav__link">
+    from_name()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.from_ZNM" class="md-nav__link">
+    from_ZNM()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.intersection" class="md-nav__link">
+    intersection()
+  </a>
+  
+    <nav class="md-nav" aria-label="intersection()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.intersection--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.names" class="md-nav__link">
+    names()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.not_in" class="md-nav__link">
+    not_in()
+  </a>
+  
+    <nav class="md-nav" aria-label="not_in()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.not_in--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.rmse" class="md-nav__link">
+    rmse()
+  </a>
+  
+    <nav class="md-nav" aria-label="rmse()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.rmse--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.select" class="md-nav__link">
+    select()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.to_file" class="md-nav__link">
+    to_file()
+  </a>
+  
+    <nav class="md-nav" aria-label="to_file()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#masstable.masstable.Table.to_file--example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/elyase/masstable/edit/master/docs/reference.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Reference</h1>
+                
+                <div class="doc doc-object doc-class">
+
+<a id="masstable.masstable.Table"></a>
+    <div class="doc doc-contents first">
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.A">
+<code class="highlight language-python"><span class="n">A</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.A" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return the mass number A for all nuclei in the table as a numpy array.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.binding_energy">
+<code class="highlight language-python"><span class="n">binding_energy</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.binding_energy" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return binding energies instead of mass excesses</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.count">
+<code class="highlight language-python"><span class="n">count</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.count" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return the total number of nuclei in the table</p>
+<h4 id="masstable.masstable.Table.count--example">Example<a class="headerlink" href="#masstable.masstable.Table.count--example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;AME2012&#39;).count
+2438
+</code></pre></div>
+<p>It is also possible to do:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; len(Table(&#39;AME2012&#39;))
+2438
+</code></pre></div>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.ds2n">
+<code class="highlight language-python"><span class="n">ds2n</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.ds2n" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Calculates the derivative of the neutron separation energies:</p>
+<p>ds2n(Z,A) = s2n(Z,A) - s2n(Z,A+2)</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.ds2p">
+<code class="highlight language-python"><span class="n">ds2p</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.ds2p" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Calculates the derivative of the neutron separation energies:</p>
+<p>ds2n(Z,A) = s2n(Z,A) - s2n(Z,A+2)</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.even_even">
+<code class="highlight language-python"><span class="n">even_even</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.even_even" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Selects even-even nuclei from the table</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.even_odd">
+<code class="highlight language-python"><span class="n">even_odd</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.even_odd" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Selects even-odd nuclei from the table</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.N">
+<code class="highlight language-python"><span class="n">N</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.N" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return the neutron number N for all nuclei in the table as a numpy array.</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.odd_even">
+<code class="highlight language-python"><span class="n">odd_even</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.odd_even" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Selects odd-even nuclei from the table</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.odd_odd">
+<code class="highlight language-python"><span class="n">odd_odd</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.odd_odd" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Selects odd-odd nuclei from the table:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;FRDM95&#39;).odd_odd
+Z   N
+9   9       1.21
+    11      0.10
+    13      3.08
+    15      9.32
+</code></pre></div>
+<p>...</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.q_alpha">
+<code class="highlight language-python"><span class="n">q_alpha</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.q_alpha" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return Q_alpha</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.q_beta">
+<code class="highlight language-python"><span class="n">q_beta</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.q_beta" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return Q_beta</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.s1n">
+<code class="highlight language-python"><span class="n">s1n</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.s1n" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return 1 neutron separation energy</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.s1p">
+<code class="highlight language-python"><span class="n">s1p</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.s1p" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return 1 proton separation energy</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.s2n">
+<code class="highlight language-python"><span class="n">s2n</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.s2n" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return 2 neutron separation energy</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.s2p">
+<code class="highlight language-python"><span class="n">s2p</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.s2p" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return 2 proton separation energy</p>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.Z">
+<code class="highlight language-python"><span class="n">Z</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.Z" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return the proton number Z for all nuclei in the table as a numpy array.</p>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.__getattr__">
+<code class="highlight language-python"><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.__getattr__" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Pass properties and method calls to the DataFrame object</p>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+    <span class="c1"># TODO: Pythonize</span>
+    <span class="s2">&quot;Pass properties and method calls to the DataFrame object&quot;</span>
+    <span class="n">instance_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">instance_method</span><span class="p">):</span>
+
+        <span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">instance_method</span><span class="p">(</span>
+                <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="p">)</span>  <span class="c1"># ()-&gt;call the instance method</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">name</span>
+                <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                    <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># wrap in Table class</span>
+
+        <span class="k">return</span> <span class="n">fn</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">instance_method</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.__getitem__">
+<code class="highlight language-python"><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.__getitem__" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Access [] operator</p>
+<h4 id="masstable.masstable.Table.__getitem__--examples">Examples<a class="headerlink" href="#masstable.masstable.Table.__getitem__--examples" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;DUZU&#39;)[82, 126:127]
+DUZU
+Z   N
+82  126 -22.29
+    127 -17.87
+
+&gt;&gt;&gt; Table(&#39;AME2012all&#39;)[118, :]
+AME2012all
+Z   N
+118 173  198.93
+    174  199.27
+    175  201.43
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Access [] operator</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">        &gt;&gt;&gt; Table(&#39;DUZU&#39;)[82, 126:127]</span>
+<span class="sd">        DUZU</span>
+<span class="sd">        Z   N</span>
+<span class="sd">        82  126 -22.29</span>
+<span class="sd">            127 -17.87</span>
+
+<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2012all&#39;)[118, :]</span>
+<span class="sd">        AME2012all</span>
+<span class="sd">        Z   N</span>
+<span class="sd">        118 173  198.93</span>
+<span class="sd">            174  199.27</span>
+<span class="sd">            175  201.43</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>  <span class="c1"># single N: &quot;[82, :]&quot;</span>
+            <span class="n">startZ</span><span class="p">,</span> <span class="n">stopZ</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">startN</span><span class="p">,</span> <span class="n">stopN</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># single N: &quot;[:, 126]&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">slice</span><span class="p">):</span>  <span class="c1"># Z slice: &quot;[:, 126]&quot;</span>
+            <span class="n">startZ</span><span class="p">,</span> <span class="n">stopZ</span><span class="p">,</span> <span class="n">stepZ</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">step</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">slice</span><span class="p">):</span>  <span class="c1"># N slice: &quot;[:, 126]&quot;</span>
+            <span class="n">startN</span><span class="p">,</span> <span class="n">stopN</span><span class="p">,</span> <span class="n">stepN</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">stop</span><span class="p">,</span> <span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">step</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">startZ</span><span class="p">:</span>
+            <span class="n">startZ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># might be optimized</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">stopZ</span><span class="p">:</span>
+            <span class="n">stopZ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">startN</span><span class="p">:</span>
+            <span class="n">startN</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">stopN</span><span class="p">:</span>
+            <span class="n">stopN</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">Z</span> <span class="o">&gt;=</span> <span class="n">startZ</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">Z</span> <span class="o">&lt;=</span> <span class="n">stopZ</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">N</span> <span class="o">&gt;=</span> <span class="n">startN</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">N</span> <span class="o">&lt;=</span> <span class="n">stopN</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.__init__">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.__init__" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Init from a Series/Dataframe (df) of a file (name)</p>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="s2">&quot;Init from a Series/Dataframe (df) of a file (name)&quot;</span>
+    <span class="k">if</span> <span class="n">df</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># init from dataframe</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_names</span><span class="p">:</span>  <span class="c1"># init from name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">df</span>
+        <span class="c1"># self.df.name = name</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: Invalid table name. Valid names are:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">Table</span><span class="o">.</span><span class="n">names</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.__len__">
+<code class="highlight language-python"><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-special"><code>special</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.__len__" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return the total number of nuclei</p>
+<h4 id="masstable.masstable.Table.__len__--example">Example<a class="headerlink" href="#masstable.masstable.Table.__len__--example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; len(Table(&#39;AME2012&#39;))
+2438
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the total number of nuclei</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">        &gt;&gt;&gt; len(Table(&#39;AME2012&#39;))</span>
+<span class="sd">        2438</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.at">
+<code class="highlight language-python"><span class="n">at</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuclei</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.at" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a selection of the Table at positions given by <code>nuclei</code></p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>nuclei</code></td>
+        <td><code></code></td>
+        <td><p>list of tuples
+A list where each element is tuple of the form (Z,N)</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>      <h4 id="masstable.masstable.Table.at--example">Example<a class="headerlink" href="#masstable.masstable.Table.at--example" title="Permanent link">&para;</a></h4>
+<p>Return binding energies at magic nuclei:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; magic_nuclei = [(20,28), (50,50), (50,82), (82,126)]
+&gt;&gt;&gt; Table(&#39;AME2012&#39;).binding_energy.at(magic_nuclei)
+Z   N
+20  28      416.014215
+50  50      825.325172
+    82     1102.876416
+82  126    1636.486450
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">at</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuclei</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a selection of the Table at positions given by ``nuclei``</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        nuclei: list of tuples</span>
+<span class="sd">            A list where each element is tuple of the form (Z,N)</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    Return binding energies at magic nuclei:</span>
+
+<span class="sd">        &gt;&gt;&gt; magic_nuclei = [(20,28), (50,50), (50,82), (82,126)]</span>
+<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2012&#39;).binding_energy.at(magic_nuclei)</span>
+<span class="sd">        Z   N</span>
+<span class="sd">        20  28      416.014215</span>
+<span class="sd">        50  50      825.325172</span>
+<span class="sd">            82     1102.876416</span>
+<span class="sd">        82  126    1636.486450</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">nuclei</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.chart_plot">
+<code class="highlight language-python"><span class="n">chart_plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdBu&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Z&#39;</span><span class="p">,</span> <span class="n">grid_on</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.chart_plot" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Plot a nuclear chart with (N,Z) as axis and the values
+of the Table as a color scale</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>ax</code></td>
+        <td><code></code></td>
+        <td><p>optional matplotlib axes
+    defaults to current axes</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>cmap</code></td>
+        <td><code></code></td>
+        <td><p>a matplotlib colormap
+    default: 'RdBu'</p></td>
+        <td><code>&#39;RdBu&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>xlabel</code></td>
+        <td><code></code></td>
+        <td><p>string representing the label of the x axis
+default: 'N'</p></td>
+        <td><code>&#39;N&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>ylabel</code></td>
+        <td><code></code></td>
+        <td><p>string, default: 'Z'
+the label of the x axis</p></td>
+        <td><code>&#39;Z&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>grid_on</code></td>
+        <td><code></code></td>
+        <td><p>boolean, default: True,
+whether to draw the axes grid or not</p></td>
+        <td><code>True</code></td>
+      </tr>
+      <tr>
+        <td><code>colorbar</code></td>
+        <td><code></code></td>
+        <td><p>boolean, default: True
+whether to draw a colorbar or not</p></td>
+        <td><code>True</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ax</code></td>
+      <td><p>a matplotlib axes object</p></td>
+    </tr>
+  </tbody>
+</table>      <h4 id="masstable.masstable.Table.chart_plot--example">Example<a class="headerlink" href="#masstable.masstable.Table.chart_plot--example" title="Permanent link">&para;</a></h4>
+<p>Plot the theoretical deviation for the Möller's model::</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;FRDM95&#39;).error().chart_plot()
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">chart_plot</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+    <span class="n">grid_on</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Plot a nuclear chart with (N,Z) as axis and the values</span>
+<span class="sd">    of the Table as a color scale</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        ax: optional matplotlib axes</span>
+<span class="sd">                defaults to current axes</span>
+<span class="sd">        cmap: a matplotlib colormap</span>
+<span class="sd">                default: &#39;RdBu&#39;</span>
+<span class="sd">        xlabel: string representing the label of the x axis</span>
+<span class="sd">            default: &#39;N&#39;</span>
+<span class="sd">        ylabel: string, default: &#39;Z&#39;</span>
+<span class="sd">            the label of the x axis</span>
+<span class="sd">        grid_on: boolean, default: True,</span>
+<span class="sd">            whether to draw the axes grid or not</span>
+<span class="sd">        colorbar: boolean, default: True</span>
+<span class="sd">            whether to draw a colorbar or not</span>
+
+<span class="sd">    Returns:</span>
+
+<span class="sd">        ax: a matplotlib axes object</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    Plot the theoretical deviation for the Möller&#39;s model::</span>
+
+<span class="sd">        &gt;&gt;&gt; Table(&#39;FRDM95&#39;).error().chart_plot()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linspace</span><span class="p">,</span> <span class="n">meshgrid</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+    <span class="c1"># extract the 1D arrays to be plotted</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">N</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">Z</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="c1"># convert to matplotlibs grid format</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">yi</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">meshgrid</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">)</span>
+
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">griddata</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">z</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+
+    <span class="c1"># create and customize plot</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">grid_on</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">colorbar</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">chart</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">save_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ax</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.derived">
+<code class="highlight language-python"><span class="n">derived</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">relative_coords</span><span class="p">,</span> <span class="n">formula</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.derived" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Helper function for derived quantities</p>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">derived</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">relative_coords</span><span class="p">,</span> <span class="n">formula</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Helper function for derived quantities&quot;&quot;&quot;</span>
+
+    <span class="n">dZ</span><span class="p">,</span> <span class="n">dN</span> <span class="o">=</span> <span class="n">relative_coords</span>
+    <span class="n">daughter_idx</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Z</span> <span class="o">+</span> <span class="n">dZ</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="n">dN</span><span class="p">)</span> <span class="k">for</span> <span class="n">Z</span><span class="p">,</span> <span class="n">N</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">daughter_idx</span><span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">formula</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">daughter_idx</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span>
+        <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.error">
+<code class="highlight language-python"><span class="n">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="s1">&#39;AME2003&#39;</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.error" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Calculate error difference</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>relative_to</code></td>
+        <td><code></code></td>
+        <td><p>string
+a valid mass table name</p></td>
+        <td><code>&#39;AME2003&#39;</code></td>
+      </tr>
+  </tbody>
+</table>      <h4 id="masstable.masstable.Table.error--example">Example<a class="headerlink" href="#masstable.masstable.Table.error--example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;DUZU&#39;).error(relative_to=&#39;AME2003&#39;).dropna()
+Z    N
+8    8      0.667001
+    9      0.138813
+    10    -0.598478
+    11    -0.684870
+    12    -1.167462
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="s2">&quot;AME2003&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate error difference</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        relative_to: string</span>
+<span class="sd">            a valid mass table name</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">        &gt;&gt;&gt; Table(&#39;DUZU&#39;).error(relative_to=&#39;AME2003&#39;).dropna()</span>
+<span class="sd">        Z    N</span>
+<span class="sd">        8    8      0.667001</span>
+<span class="sd">            9      0.138813</span>
+<span class="sd">            10    -0.598478</span>
+<span class="sd">            11    -0.684870</span>
+<span class="sd">            12    -1.167462            </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">-</span> <span class="n">Table</span><span class="p">(</span><span class="n">relative_to</span><span class="p">)</span><span class="o">.</span><span class="n">df</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.from_file">
+<code class="highlight language-python"><span class="n">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.from_file" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Imports a mass table from a file</p>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="s2">&quot;Imports a mass table from a file&quot;</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])[</span>
+        <span class="s2">&quot;M&quot;</span>
+    <span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.from_name">
+<code class="highlight language-python"><span class="n">from_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.from_name" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Imports a mass table from a file</p>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="s2">&quot;Imports a mass table from a file&quot;</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">package_dir</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.from_ZNM">
+<code class="highlight language-python"><span class="n">from_ZNM</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.from_ZNM" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Creates a table from arrays Z, N and M</p>
+
+<p><strong>Examples:</strong></p>
+    
+      <hr />
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Z = [82, 82, 83]
+&gt;&gt;&gt; N = [126, 127, 130]
+&gt;&gt;&gt; M = [-21.34, -18.0, -14.45]
+&gt;&gt;&gt; Table.from_ZNM(Z, N, M, name=&#39;Custom Table&#39;)
+Z   N
+82  126   -21.34
+    127   -18.00
+83  130   -14.45
+Name: Custom Table, dtype: float64
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_ZNM</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a table from arrays Z, N and M</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    ________</span>
+
+<span class="sd">        &gt;&gt;&gt; Z = [82, 82, 83]</span>
+<span class="sd">        &gt;&gt;&gt; N = [126, 127, 130]</span>
+<span class="sd">        &gt;&gt;&gt; M = [-21.34, -18.0, -14.45]</span>
+<span class="sd">        &gt;&gt;&gt; Table.from_ZNM(Z, N, M, name=&#39;Custom Table&#39;)</span>
+<span class="sd">        Z   N</span>
+<span class="sd">        82  126   -21.34</span>
+<span class="sd">            127   -18.00</span>
+<span class="sd">        83  130   -14.45</span>
+<span class="sd">        Name: Custom Table, dtype: float64</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s2">&quot;Z&quot;</span><span class="p">:</span> <span class="n">Z</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">:</span> <span class="n">N</span><span class="p">,</span> <span class="s2">&quot;M&quot;</span><span class="p">:</span> <span class="n">M</span><span class="p">})</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">])[</span><span class="s2">&quot;M&quot;</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.intersection">
+<code class="highlight language-python"><span class="n">intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.intersection" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Select nuclei which also belong to <code>table</code></p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>table</code></td>
+        <td><code></code></td>
+        <td><p>Table
+Table object</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>      <h4 id="masstable.masstable.Table.intersection--example">Example<a class="headerlink" href="#masstable.masstable.Table.intersection--example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;AME2003&#39;).intersection(Table(&#39;AME1995&#39;))
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select nuclei which also belong to ``table``</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        table: Table</span>
+<span class="sd">            Table object</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2003&#39;).intersection(Table(&#39;AME1995&#39;))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.names">
+<code class="highlight language-python"><span class="n">names</span><span class="p">()</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a class="headerlink" href="#masstable.masstable.Table.names" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Return a list of the names of all supported mass models</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="o">.</span><span class="n">names</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;AME2003&#39;</span><span class="p">,</span> <span class="s1">&#39;AME2003all&#39;</span><span class="p">,</span> <span class="s1">&#39;AME2012&#39;</span><span class="p">,</span> <span class="s1">&#39;AME2012all&#39;</span><span class="p">,</span> <span class="s1">&#39;AME1995&#39;</span><span class="p">,</span>
+<span class="s1">&#39;AME1995all&#39;</span><span class="p">,</span> <span class="s1">&#39;DUZU&#39;</span><span class="p">,</span> <span class="s1">&#39;FRDM95&#39;</span><span class="p">,</span> <span class="s1">&#39;KTUY05&#39;</span><span class="p">,</span> <span class="s1">&#39;ETFSI12&#39;</span><span class="p">,</span> <span class="s1">&#39;HFB14&#39;</span><span class="p">,</span>
+<span class="s1">&#39;HFB26&#39;</span><span class="p">,</span> <span class="s1">&#39;TCSM12&#39;</span><span class="p">,</span> <span class="s1">&#39;TCSM13&#39;</span><span class="p">,</span> <span class="s1">&#39;BR2013&#39;</span><span class="p">,</span> <span class="s1">&#39;MAJA88&#39;</span><span class="p">,</span> <span class="s1">&#39;GK88&#39;</span><span class="p">,</span> <span class="s1">&#39;WS32010&#39;</span><span class="p">,</span> <span class="s1">&#39;WS32011&#39;</span><span class="p">,</span>
+<span class="s1">&#39;SVM13&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">names</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a list of the names of all supported mass models</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; Table.names()</span>
+<span class="sd">        [&#39;AME2003&#39;, &#39;AME2003all&#39;, &#39;AME2012&#39;, &#39;AME2012all&#39;, &#39;AME1995&#39;,</span>
+<span class="sd">        &#39;AME1995all&#39;, &#39;DUZU&#39;, &#39;FRDM95&#39;, &#39;KTUY05&#39;, &#39;ETFSI12&#39;, &#39;HFB14&#39;,</span>
+<span class="sd">        &#39;HFB26&#39;, &#39;TCSM12&#39;, &#39;TCSM13&#39;, &#39;BR2013&#39;, &#39;MAJA88&#39;, &#39;GK88&#39;, &#39;WS32010&#39;, &#39;WS32011&#39;,</span>
+<span class="sd">        &#39;SVM13&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_names</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.not_in">
+<code class="highlight language-python"><span class="n">not_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.not_in" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Select nuclei not in table</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>table</code></td>
+        <td><code></code></td>
+        <td><p>Table
+Table object from where nuclei should be removed</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>      <h4 id="masstable.masstable.Table.not_in--example">Example<a class="headerlink" href="#masstable.masstable.Table.not_in--example" title="Permanent link">&para;</a></h4>
+<p>Find the new nuclei in AME2003 with Z,N &gt;= 8:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;AME2003&#39;).not_in(Table(&#39;AME1995&#39;))[8:,8:].count
+389
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">not_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Select nuclei not in table</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        table: Table</span>
+<span class="sd">            Table object from where nuclei should be removed</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    Find the new nuclei in AME2003 with Z,N &gt;= 8:</span>
+
+<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2003&#39;).not_in(Table(&#39;AME1995&#39;))[8:,8:].count</span>
+<span class="sd">        389</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.rmse">
+<code class="highlight language-python"><span class="n">rmse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="s1">&#39;AME2003&#39;</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.rmse" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Calculate root mean squared error</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>relative_to</code></td>
+        <td><code></code></td>
+        <td><p>string,
+a valid mass table name.</p></td>
+        <td><code>&#39;AME2003&#39;</code></td>
+      </tr>
+  </tbody>
+</table>      <h4 id="masstable.masstable.Table.rmse--example">Example<a class="headerlink" href="#masstable.masstable.Table.rmse--example" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; template = &#39;{0:10}|{1:^6.2f}|{2:^6.2f}|{3:^6.2f}&#39;
+&gt;&gt;&gt; print(&#39;Model      &#39;, &#39;AME95 &#39;, &#39;AME03 &#39;, &#39;AME12 &#39;)  #  Table header
+... for name in Table.names:
+...     print(template.format(name, Table(name).rmse(relative_to=&#39;AME1995&#39;),
+...                             Table(name).rmse(relative_to=&#39;AME2003&#39;),
+...                             Table(name).rmse(relative_to=&#39;AME2012&#39;)))
+Model       AME95  AME03  AME12
+AME2003   | 0.13 | 0.00 | 0.13
+AME2003all| 0.42 | 0.40 | 0.71
+AME2012   | 0.16 | 0.13 | 0.00
+AME2012all| 0.43 | 0.43 | 0.69
+AME1995   | 0.00 | 0.13 | 0.16
+AME1995all| 0.00 | 0.17 | 0.21
+DUZU      | 0.52 | 0.52 | 0.76
+FRDM95    | 0.79 | 0.78 | 0.95
+KTUY05    | 0.78 | 0.77 | 1.03
+ETFSI12   | 0.84 | 0.84 | 1.04
+HFB14     | 0.84 | 0.83 | 1.02
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="s2">&quot;AME2003&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate root mean squared error</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        relative_to: string,</span>
+<span class="sd">            a valid mass table name.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+
+<span class="sd">        &gt;&gt;&gt; template = &#39;{0:10}|{1:^6.2f}|{2:^6.2f}|{3:^6.2f}&#39;</span>
+<span class="sd">        &gt;&gt;&gt; print(&#39;Model      &#39;, &#39;AME95 &#39;, &#39;AME03 &#39;, &#39;AME12 &#39;)  #  Table header</span>
+<span class="sd">        ... for name in Table.names:</span>
+<span class="sd">        ...     print(template.format(name, Table(name).rmse(relative_to=&#39;AME1995&#39;),</span>
+<span class="sd">        ...                             Table(name).rmse(relative_to=&#39;AME2003&#39;),</span>
+<span class="sd">        ...                             Table(name).rmse(relative_to=&#39;AME2012&#39;)))</span>
+<span class="sd">        Model       AME95  AME03  AME12</span>
+<span class="sd">        AME2003   | 0.13 | 0.00 | 0.13</span>
+<span class="sd">        AME2003all| 0.42 | 0.40 | 0.71</span>
+<span class="sd">        AME2012   | 0.16 | 0.13 | 0.00</span>
+<span class="sd">        AME2012all| 0.43 | 0.43 | 0.69</span>
+<span class="sd">        AME1995   | 0.00 | 0.13 | 0.16</span>
+<span class="sd">        AME1995all| 0.00 | 0.17 | 0.21</span>
+<span class="sd">        DUZU      | 0.52 | 0.52 | 0.76</span>
+<span class="sd">        FRDM95    | 0.79 | 0.78 | 0.95</span>
+<span class="sd">        KTUY05    | 0.78 | 0.77 | 1.03</span>
+<span class="sd">        ETFSI12   | 0.84 | 0.84 | 1.04</span>
+<span class="sd">        HFB14     | 0.84 | 0.83 | 1.02</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">error</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">relative_to</span><span class="o">=</span><span class="n">relative_to</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">error</span><span class="o">.</span><span class="n">df</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.select">
+<code class="highlight language-python"><span class="n">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.select" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Selects nuclei according to a condition on Z,N or M</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>condition</code></td>
+        <td><code></code></td>
+        <td><p>function
+Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)
+must return a boolean value</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>name</code></td>
+        <td><code></code></td>
+        <td><p>string
+optional name for the resulting Table</p></td>
+        <td><code>&#39;&#39;</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Examples:</strong></p>
+    
+      <hr />
+<p>Select all nuclei with A &gt; 160:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; A_gt_160 = lambda Z,N: Z + N &gt; 160
+&gt;&gt;&gt; Table(&#39;AME2003&#39;).select(A_gt_160)
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Selects nuclei according to a condition on Z,N or M</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        condition: function</span>
+<span class="sd">            Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)</span>
+<span class="sd">            must return a boolean value</span>
+<span class="sd">        name: string</span>
+<span class="sd">            optional name for the resulting Table</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    --------</span>
+<span class="sd">    Select all nuclei with A &gt; 160:</span>
+
+<span class="sd">        &gt;&gt;&gt; A_gt_160 = lambda Z,N: Z + N &gt; 160</span>
+<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2003&#39;).select(A_gt_160)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">condition</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">M</span> <span class="ow">in</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">M</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">condition</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">condition</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">M</span> <span class="ow">in</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">M</span><span class="p">)]</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">Table</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-method">
+
+
+
+<h2 class="doc doc-heading" id="masstable.masstable.Table.to_file">
+<code class="highlight language-python"><span class="n">to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></code>
+
+
+<a class="headerlink" href="#masstable.masstable.Table.to_file" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Export the contents to a file as comma separated values.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>path</code></td>
+        <td><code></code></td>
+        <td><p>string
+File path where the data should be saved to</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>      <h4 id="masstable.masstable.Table.to_file--example">Example<a class="headerlink" href="#masstable.masstable.Table.to_file--example" title="Permanent link">&para;</a></h4>
+<p>Export the last ten elements of AME2012 to a new file:</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;AME2012&#39;).tail(10).to_file(&#39;last_ten.txt&#39;)
+</code></pre></div>
+
+        <details class="quote">
+          <summary>Source code in <code>masstable/masstable.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Export the contents to a file as comma separated values.</span>
+
+<span class="sd">    Parameters:</span>
+
+<span class="sd">        path : string</span>
+<span class="sd">            File path where the data should be saved to</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    Export the last ten elements of AME2012 to a new file:</span>
+
+<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2012&#39;).tail(10).to_file(&#39;last_ten.txt&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Z   N   M</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+  </div>
+
+    </div>
+
+  </div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href=".." class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Quick start
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.7353b375.min.js"></script>
+      
+    
+  </body>
+</html>
