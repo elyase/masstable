@@ -64,11 +64,13 @@ class Table:
     def names(cls):
         """Return a list of the names of all supported mass models
 
-        >>> Table.names()
-        ['AME2003', 'AME2003all', 'AME2012', 'AME2012all', 'AME1995',
-        'AME1995all', 'DUZU', 'FRDM95', 'KTUY05', 'ETFSI12', 'HFB14',
-        'HFB26', 'TCSM12', 'TCSM13', 'BR2013', 'MAJA88', 'GK88', 'WS32010', 'WS32011',
-        'SVM13']
+        Example:
+
+            >>> Table.names()
+            ['AME2003', 'AME2003all', 'AME2012', 'AME2012all', 'AME1995',
+            'AME1995all', 'DUZU', 'FRDM95', 'KTUY05', 'ETFSI12', 'HFB14',
+            'HFB26', 'TCSM12', 'TCSM13', 'BR2013', 'MAJA88', 'GK88', 'WS32010', 'WS32011',
+            'SVM13']
         """
         return cls._names
 
@@ -81,6 +83,7 @@ class Table:
     @classmethod
     def from_file(cls, filename, name=""):
         "Imports a mass table from a file"
+
         df = pd.read_csv(filename, header=0, delim_whitespace=True, index_col=[0, 1])[
             "M"
         ]
@@ -95,15 +98,15 @@ class Table:
         Example:
         ________
 
-        >>> Z = [82, 82, 83]
-        >>> N = [126, 127, 130]
-        >>> M = [-21.34, -18.0, -14.45]
-        >>> Table.from_ZNM(Z, N, M, name='Custom Table')
-        Z   N
-        82  126   -21.34
-            127   -18.00
-        83  130   -14.45
-        Name: Custom Table, dtype: float64
+            >>> Z = [82, 82, 83]
+            >>> N = [126, 127, 130]
+            >>> M = [-21.34, -18.0, -14.45]
+            >>> Table.from_ZNM(Z, N, M, name='Custom Table')
+            Z   N
+            82  126   -21.34
+                127   -18.00
+            83  130   -14.45
+            Name: Custom Table, dtype: float64
         """
         df = pd.DataFrame.from_dict({"Z": Z, "N": N, "M": M}).set_index(["Z", "N"])["M"]
         df.name = name
@@ -117,16 +120,16 @@ class Table:
     def to_file(self, path):
         """Export the contents to a file as comma separated values.
 
-        Parameters
-        ----------
-        path : string
-            File path where the data should be saved to
+        Parameters:
+
+            path : string
+                File path where the data should be saved to
 
         Example
         -------
         Export the last ten elements of AME2012 to a new file:
 
-        >>> Table('AME2012').tail(10).to_file('last_ten.txt')
+            >>> Table('AME2012').tail(10).to_file('last_ten.txt')
         """
         with open(path, "w") as f:
             f.write("Z   N   M\n")
@@ -155,20 +158,22 @@ class Table:
 
     def __getitem__(self, index):
         """Access [] operator
-        Examples:
 
-        >>> Table('DUZU')[82, 126:127]
-                DUZU
-        Z   N
-        82  126 -22.29
-            127 -17.87
+        Examples
+        --------
 
-        >>> Table('AME2012all')[118, :]
-                AME2012all
-        Z   N
-        118 173  198.93
-            174  199.27
-            175  201.43
+            >>> Table('DUZU')[82, 126:127]
+            DUZU
+            Z   N
+            82  126 -22.29
+                127 -17.87
+
+            >>> Table('AME2012all')[118, :]
+            AME2012all
+            Z   N
+            118 173  198.93
+                174  199.27
+                175  201.43
 
         """
         if isinstance(index, tuple) and len(index) == 2:
@@ -247,19 +252,20 @@ class Table:
         """
         Selects nuclei according to a condition on Z,N or M
 
-        Parameters
-        ----------
-        condition : function,
-            Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)
-            must return a boolean value
-        name: string, optional name for the resulting Table
+        Parameters:
+
+            condition: function
+                Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)
+                must return a boolean value
+            name: string
+                optional name for the resulting Table
 
         Example:
         --------
         Select all nuclei with A > 160:
 
-        >>> A_gt_160 = lambda Z,N: Z + N > 160
-        >>> Table('AME2003').select(A_gt_160)
+            >>> A_gt_160 = lambda Z,N: Z + N > 160
+            >>> Table('AME2003').select(A_gt_160)
         """
         if condition.__code__.co_argcount == 1:
             idx = [(Z, N) for (Z, N), M in self if condition(M)]
@@ -273,22 +279,22 @@ class Table:
     def at(self, nuclei):
         """Return a selection of the Table at positions given by ``nuclei``
 
-        Parameters
-        ----------
-        nuclei: list of tuples
-            A list where each element is tuple of the form (Z,N)
+        Parameters:
+
+            nuclei: list of tuples
+                A list where each element is tuple of the form (Z,N)
 
         Example
         -------
         Return binding energies at magic nuclei:
 
-        >>> magic_nuclei = [(20,28), (50,50), (50,82), (82,126)]
-        >>> Table('AME2012').binding_energy.at(magic_nuclei)
-        Z   N
-        20  28      416.014215
-        50  50      825.325172
-            82     1102.876416
-        82  126    1636.486450
+            >>> magic_nuclei = [(20,28), (50,50), (50,82), (82,126)]
+            >>> Table('AME2012').binding_energy.at(magic_nuclei)
+            Z   N
+            20  28      416.014215
+            50  50      825.325172
+                82     1102.876416
+            82  126    1636.486450
         """
         index = pd.MultiIndex.from_tuples(nuclei, names=["Z", "N"])
         return Table(df=self.df.loc[index], name=self.name)
@@ -298,24 +304,30 @@ class Table:
         return cls(df=pd.DataFrame(index=[], columns=[]), name=name)
 
     def __len__(self):
-        """Return the total number of nuclei:
+        """Return the total number of nuclei
 
-        >>> len(Table('AME2012'))
-        2438
+        Example
+        -------
+
+            >>> len(Table('AME2012'))
+            2438
         """
         return len(self.df)
 
     @property
     def count(self):
-        """Return the total number of nuclei in the table:
+        """Return the total number of nuclei in the table
 
-        >>> Table('AME2012').count
-        2438
+        Example
+        -------
+
+            >>> Table('AME2012').count
+            2438
 
         It is also possible to do:
 
-        >>> len(Table('AME2012'))
-        2438
+            >>> len(Table('AME2012'))
+            2438
         """
         return len(self.df)
 
@@ -323,13 +335,15 @@ class Table:
         """
         Select nuclei which also belong to ``table``
 
-        Parameters
-        ----------
-        table: Table, Table object
+        Parameters:
 
-        Example:
-        ----------
-        Table('AME2003').intersection(Table('AME1995'))
+            table: Table
+                Table object
+
+        Example
+        -------
+
+            >>> Table('AME2003').intersection(Table('AME1995'))
         """
         idx = self.df.index.intersection(table.df.index)
         return Table(df=self.df[idx], name=self.name)
@@ -338,16 +352,17 @@ class Table:
         """
         Select nuclei not in table
 
-        Parameters
-        ----------
-        table: Table, Table object from where nuclei should be removed
+        Parameters:
 
-        Example:
-        ----------
+            table: Table
+                Table object from where nuclei should be removed
+
+        Example
+        -------
         Find the new nuclei in AME2003 with Z,N >= 8:
 
-        >>> Table('AME2003').not_in(Table('AME1995'))[8:,8:].count
-        389
+            >>> Table('AME2003').not_in(Table('AME1995'))[8:,8:].count
+            389
         """
         idx = self.df.index.difference(table.df.index)
         return Table(df=self.df[idx], name=self.name)
@@ -357,13 +372,12 @@ class Table:
     def odd_odd(self):
         """Selects odd-odd nuclei from the table:
 
-        >>> Table('FRDM95').odd_odd
-        Out[13]:
-        Z   N
-        9   9       1.21
-            11      0.10
-            13      3.08
-            15      9.32
+            >>> Table('FRDM95').odd_odd
+            Z   N
+            9   9       1.21
+                11      0.10
+                13      3.08
+                15      9.32
         ...
         """
         return self.select(lambda Z, N: (Z % 2) and (N % 2), name=self.name)
@@ -396,14 +410,21 @@ class Table:
         """
         Calculate error difference
 
-        Parameters
-        ----------
-        relative_to : string,
-            a valid mass table name.
+        Parameters:
+        
+            relative_to: string
+                a valid mass table name
 
-        Example:
-        ----------
-        >>> Table('DUZU').error(relative_to='AME2003')
+        Example
+        -------
+
+            >>> Table('DUZU').error(relative_to='AME2003').dropna()
+            Z    N
+            8    8      0.667001
+                9      0.138813
+                10    -0.598478
+                11    -0.684870
+                12    -1.167462            
         """
         df = self.df - Table(relative_to).df
         return Table(df=df)
@@ -411,31 +432,32 @@ class Table:
     def rmse(self, relative_to="AME2003"):
         """Calculate root mean squared error
 
-        Parameters
-        ----------
-        relative_to : string,
-            a valid mass table name.
+        Parameters:
 
-        Example:
-        ----------
-        >>> template = '{0:10}|{1:^6.2f}|{2:^6.2f}|{3:^6.2f}'
-        >>> print 'Model      ', 'AME95 ', 'AME03 ', 'AME12 '  #  Table header
-        ... for name in Table.names:
-        ...     print template.format(name, Table(name).rmse(relative_to='AME1995'),
-        ...                             Table(name).rmse(relative_to='AME2003'),
-        ...                             Table(name).rmse(relative_to='AME2012'))
-        Model       AME95  AME03  AME12
-        AME2003   | 0.13 | 0.00 | 0.13
-        AME2003all| 0.42 | 0.40 | 0.71
-        AME2012   | 0.16 | 0.13 | 0.00
-        AME2012all| 0.43 | 0.43 | 0.69
-        AME1995   | 0.00 | 0.13 | 0.16
-        AME1995all| 0.00 | 0.17 | 0.21
-        DUZU      | 0.52 | 0.52 | 0.76
-        FRDM95    | 0.79 | 0.78 | 0.95
-        KTUY05    | 0.78 | 0.77 | 1.03
-        ETFSI12   | 0.84 | 0.84 | 1.04
-        HFB14     | 0.84 | 0.83 | 1.02
+            relative_to: string,
+                a valid mass table name.
+
+        Example
+        -------
+
+            >>> template = '{0:10}|{1:^6.2f}|{2:^6.2f}|{3:^6.2f}'
+            >>> print('Model      ', 'AME95 ', 'AME03 ', 'AME12 ')  #  Table header
+            ... for name in Table.names:
+            ...     print(template.format(name, Table(name).rmse(relative_to='AME1995'),
+            ...                             Table(name).rmse(relative_to='AME2003'),
+            ...                             Table(name).rmse(relative_to='AME2012')))
+            Model       AME95  AME03  AME12
+            AME2003   | 0.13 | 0.00 | 0.13
+            AME2003all| 0.42 | 0.40 | 0.71
+            AME2012   | 0.16 | 0.13 | 0.00
+            AME2012all| 0.43 | 0.43 | 0.69
+            AME1995   | 0.00 | 0.13 | 0.16
+            AME1995all| 0.00 | 0.17 | 0.21
+            DUZU      | 0.52 | 0.52 | 0.76
+            FRDM95    | 0.79 | 0.78 | 0.95
+            KTUY05    | 0.78 | 0.77 | 1.03
+            ETFSI12   | 0.84 | 0.84 | 1.04
+            HFB14     | 0.84 | 0.83 | 1.02
         """
 
         error = self.error(relative_to=relative_to)
@@ -462,6 +484,7 @@ class Table:
     @memoize
     def q_alpha(self):
         """Return Q_alpha"""
+
         M_ALPHA = 2.4249156  # He4 mass excess in MeV
         f = lambda parent, daugther: parent - daugther - M_ALPHA
         return self.derived("Q_alpha", (-2, -2), f)
@@ -470,6 +493,7 @@ class Table:
     @memoize
     def q_beta(self):
         """Return Q_beta"""
+
         f = lambda parent, daugther: parent - daugther
         return self.derived("Q_beta", (1, -1), f)
 
@@ -477,6 +501,7 @@ class Table:
     @memoize
     def s2n(self):
         """Return 2 neutron separation energy"""
+
         M_N = 8.0713171  # neutron mass excess in MeV
         f = lambda parent, daugther: -parent + daugther + 2 * M_N
         return self.derived("s2n", (0, -2), f)
@@ -485,6 +510,7 @@ class Table:
     @memoize
     def s1n(self):
         """Return 1 neutron separation energy"""
+
         M_N = 8.0713171  # neutron mass excess in MeV
         f = lambda parent, daugther: -parent + daugther + M_N
         return self.derived("s1n", (0, -1), f)
@@ -493,6 +519,7 @@ class Table:
     @memoize
     def s2p(self):
         """Return 2 proton separation energy"""
+
         M_P = 7.28897050  # proton mass excess in MeV
         f = lambda parent, daugther: -parent + daugther + 2 * M_P
         return self.derived("s2p", (-2, 0), f)
@@ -501,12 +528,14 @@ class Table:
     @memoize
     def s1p(self):
         """Return 1 proton separation energy"""
+
         M_P = 7.28897050  # proton mass excess in MeV
         f = lambda parent, daugther: -parent + daugther + M_P
         return self.derived("s1p", (-1, 0), f)
 
     def derived(self, name, relative_coords, formula):
         """Helper function for derived quantities"""
+
         dZ, dN = relative_coords
         daughter_idx = [(Z + dZ, N + dN) for Z, N in self.df.index]
         idx = self.df.index.intersection(daughter_idx)
@@ -522,6 +551,7 @@ class Table:
 
         ds2n(Z,A) = s2n(Z,A) - s2n(Z,A+2)
         """
+
         idx = [(x[0] + 0, x[1] + 2) for x in self.df.index]
         values = self.s2n.values - self.s2n.loc[idx].values
         return Table(
@@ -537,6 +567,7 @@ class Table:
 
         ds2n(Z,A) = s2n(Z,A) - s2n(Z,A+2)
         """
+
         idx = [(x[0] + 2, x[1]) for x in self.df.index]
         values = self.s2p.values - self.s2p.loc[idx].values
         return Table(
@@ -567,30 +598,30 @@ class Table:
         """Plot a nuclear chart with (N,Z) as axis and the values
         of the Table as a color scale
 
-        Parameters
-        ----------
-        ax: optional matplotlib axes
-                defaults to current axes
-        cmap: a matplotlib colormap
-                default: 'RdBu'
-        xlabel: string representing the label of the x axis
-            default: 'N'
-        ylabel: string, default: 'Z'
-            the label of the x axis
-        grid_on: boolean, default: True,
-            whether to draw the axes grid or not
-        colorbar: boolean, default: True
-            whether to draw a colorbar or not
+        Parameters:
 
-        Returns
-        -------
-        ax: a matplotlib axes object
+            ax: optional matplotlib axes
+                    defaults to current axes
+            cmap: a matplotlib colormap
+                    default: 'RdBu'
+            xlabel: string representing the label of the x axis
+                default: 'N'
+            ylabel: string, default: 'Z'
+                the label of the x axis
+            grid_on: boolean, default: True,
+                whether to draw the axes grid or not
+            colorbar: boolean, default: True
+                whether to draw a colorbar or not
+
+        Returns:
+
+            ax: a matplotlib axes object
 
         Example
         -------
         Plot the theoretical deviation for the Möller's model::
 
-        >>> Table('FRDM95').error().chart_plot()
+            >>> Table('FRDM95').error().chart_plot()
 
         """
         from scipy.interpolate import griddata

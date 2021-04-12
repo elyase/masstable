@@ -9,7 +9,6 @@ theme:
 
 repo_name: elyase/masstable
 repo_url: https://github.com/elyase/masstable
-edit_uri: ""
 
 markdown_extensions:
   - markdown_include.include:
@@ -17,9 +16,15 @@ markdown_extensions:
   - toc:
       permalink: true
   - admonition
-  - codehilite
+  - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.tasklist
 
+plugins:
+  - mkdocstrings:
+      watch:
+        - masstable
+
 nav:
-  - About: index.md
+  - Quick start: index.md
+  - Reference: reference.md

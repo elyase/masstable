@@ -2,6 +2,10 @@
 
 Utilities for working with nuclear mass tables
 
+### Install
+
+    pip install masstable
+
 ### Create a table
 
     >>> from masstable import Table
@@ -12,7 +16,6 @@ Utilities for working with nuclear mass tables
 To access the list of supported tables:
 
     >>> Table.names
-    Out[2]:
     ['AME2003',
      'AME2003all',
      'AME2012',
@@ -40,7 +43,6 @@ To view the beginning or the end sample of Table object, use the ``head`` and
 may pass a custom number same as in pandas:
 
     >>> ame.head()
-    Out[4]:
     Z  N
     0  1     8.071317
     1  0     7.288970
@@ -50,7 +52,6 @@ may pass a custom number same as in pandas:
     Name: AME2003, dtype: float64
 
     >>> ame.tail(3)
-    Out[5]:
     Z    N
     104  157    101.315395
     108  156    119.599066
@@ -62,8 +63,7 @@ may pass a custom number same as in pandas:
 Table objects support fancy indexing. For example to list all lead(Z=82) isotopes:
 
     >>> ame[82,:]
-    Out[7]:
-              AME2003
+    AME2003
     Z  N
     82 96    3.567800
        98   -1.939209
@@ -74,7 +74,6 @@ Table objects support fancy indexing. For example to list all lead(Z=82) isotope
        ...
 
     >>> ame[82,126:128]
-    Out[8]:
               AME2003
     Z  N
     82 126 -21.748455
@@ -84,13 +83,12 @@ Table objects support fancy indexing. For example to list all lead(Z=82) isotope
 To access a simple element just do:
 
     >>> ame[82,126]
-        Out[9]:
+
               AME2003
     Z  N
     82 126 -21.748455
 
     >>> Table('AME1995')[82,126]
-    Out[11]:
               AME1995
     Z  N
     82 126 -21.763563
@@ -112,7 +110,6 @@ Calculate the root mean squared error of Möller, et al. *Atomic Data and Nuclea
 Find the first odd-odd nuclei of Möller's mass table:
 
     >>> Table('FRDM95').odd_odd
-    Out[13]:
     Z   N
     9   9       1.21
         11      0.10
@@ -135,7 +132,6 @@ For example:
 
     >>> duzu = Table('DUZU')
     >>> duzu.s2n.tail()
-    Out[29]:
     Z    N
     119  179    13.412634
     120  178    14.282634

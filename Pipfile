@@ -20,6 +20,7 @@ markdown-include = "*"
 pygments = "*"
 pymdown-extensions = "*"
 bumpversion = "*"
+mkdocstrings = "*"
 
 [packages]
 scipy = "*"
