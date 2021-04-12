@@ -25,7 +25,7 @@ def memoize(obj):
 
 
 class Table:
-    def __init__(self, name: str="", df: pd.DataFrame=None):
+    def __init__(self, name: str = "", df: pd.DataFrame = None):
         "Init from a Series/Dataframe (df) of a file (name)"
         if df is not None:  # init from dataframe
             self.df = df
@@ -83,7 +83,7 @@ class Table:
         return cls.from_file(filename, name)
 
     @classmethod
-    def from_file(cls, filename: str, name: str=""):
+    def from_file(cls, filename: str, name: str = ""):
         "Imports a mass table from a file"
 
         df = pd.read_csv(filename, header=0, delim_whitespace=True, index_col=[0, 1])[
@@ -204,7 +204,10 @@ class Table:
             df = x.set_index(["Z", "N"]).sort_index(0)
             return Table(df=df[df.columns[0]], name=self.name)
 
-    def __setitem__(self, key: int, value:int) -> None:
+        if isinstance(index, list):
+            return self.at(index)
+
+    def __setitem__(self, key: int, value: int) -> None:
         Z = key[0]
         N = key[1]
         self.df.loc[(Z, N)] = value
@@ -247,7 +250,7 @@ class Table:
         result = self.df.align(*args, **kwargs)[0]
         return Table(result.name, result)
 
-    def select(self, condition: Callable, name: str ="") -> Table:
+    def select(self, condition: Callable, name: str = "") -> Table:
         """
         Selects nuclei according to a condition on Z,N or M
 
@@ -299,7 +302,7 @@ class Table:
         return Table(df=self.df.loc[index], name=self.name)
 
     @classmethod
-    def empty(cls, name:str ="") -> Table:
+    def empty(cls, name: str = "") -> Table:
         return cls(df=pd.DataFrame(index=[], columns=[]), name=name)
 
     def __len__(self):
@@ -403,12 +406,12 @@ class Table:
         """
         return self.select(lambda Z, N: not (Z % 2) and not (N % 2), name=self.name)
 
-    def error(self, relative_to:str ="AME2003") -> Table:
+    def error(self, relative_to: str = "AME2003") -> Table:
         """
         Calculate error difference
 
         Parameters:
-        
+
             relative_to: a valid mass table name
 
         Example
@@ -420,12 +423,12 @@ class Table:
                 9      0.138813
                 10    -0.598478
                 11    -0.684870
-                12    -1.167462            
+                12    -1.167462
         """
         df = self.df - Table(relative_to).df
         return Table(df=df)
 
-    def rmse(self, relative_to:str="AME2003"):
+    def rmse(self, relative_to: str = "AME2003"):
         """Calculate root mean squared error
 
         Parameters:
@@ -527,7 +530,7 @@ class Table:
         f = lambda parent, daugther: -parent + daugther + M_P
         return self.derived("s1p", (-1, 0), f)
 
-    def derived(self, name:str, relative_coords:Tuple[int, int], formula: Callable):
+    def derived(self, name: str, relative_coords: Tuple[int, int], formula: Callable):
         """Helper function for derived quantities"""
 
         dZ, dN = relative_coords
@@ -582,12 +585,12 @@ class Table:
     def chart_plot(
         self,
         ax=None,
-        cmap:str="RdBu",
-        xlabel:str="N",
-        ylabel:str="Z",
-        grid_on:bool=True,
-        colorbar:bool =True,
-        save_path:str =None,
+        cmap: str = "RdBu",
+        xlabel: str = "N",
+        ylabel: str = "Z",
+        grid_on: bool = True,
+        colorbar: bool = True,
+        save_path: str = None,
     ):
         """Plot a nuclear chart with (N,Z) as axis and the values
         of the Table as a color scale

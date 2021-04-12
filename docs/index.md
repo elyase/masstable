@@ -93,6 +93,17 @@ To access a simple element just do:
     Z  N
     82 126 -21.763563
 
+You can also pass a list. To return the binding energies at magic nuclei:
+
+    >>> magic_nuclei = [(20,28), (50,50), (50,82), (82,126)]
+    >>> Table('AME2012').binding_energy[magic_nuclei]
+    Z   N
+    20  28      416.014215
+    50  50      825.325172
+        82     1102.876416
+    82  126    1636.486450
+    Name: AME2012, dtype: float64    
+
 For more complicated relations the ``select`` method can be used. For example to select all nuclei with A > 160 we can do:
 
     >>> A_gt_160 = lambda Z,N: Z + N > 160
