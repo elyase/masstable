@@ -240,19 +240,6 @@
     count
   </a>
   
-    <nav class="md-nav" aria-label="count">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masstable.masstable.Table.count--example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -547,19 +534,6 @@
     rmse()
   </a>
   
-    <nav class="md-nav" aria-label="rmse()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masstable.masstable.Table.rmse--example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -573,19 +547,6 @@
   <a href="#masstable.masstable.Table.to_file" class="md-nav__link">
     to_file()
   </a>
-  
-    <nav class="md-nav" aria-label="to_file()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masstable.masstable.Table.to_file--example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -645,19 +606,6 @@
     count
   </a>
   
-    <nav class="md-nav" aria-label="count">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masstable.masstable.Table.count--example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -952,19 +900,6 @@
     rmse()
   </a>
   
-    <nav class="md-nav" aria-label="rmse()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masstable.masstable.Table.rmse--example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -978,19 +913,6 @@
   <a href="#masstable.masstable.Table.to_file" class="md-nav__link">
     to_file()
   </a>
-  
-    <nav class="md-nav" aria-label="to_file()">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#masstable.masstable.Table.to_file--example" class="md-nav__link">
-    Example
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1080,7 +1002,7 @@
 
 
 <h2 class="doc doc-heading" id="masstable.masstable.Table.count">
-<code class="highlight language-python"><span class="n">count</span></code>
+<code class="highlight language-python"><span class="n">count</span><span class="p">:</span> <span class="nb">int</span></code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-property"><code>property</code></small>
@@ -1092,11 +1014,12 @@
     <div class="doc doc-contents ">
 
       <p>Return the total number of nuclei in the table</p>
-<h4 id="masstable.masstable.Table.count--example">Example<a class="headerlink" href="#masstable.masstable.Table.count--example" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;AME2012&#39;).count
-2438
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">Table</span><span class="p">(</span><span class="s1">&#39;AME2012&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span>
+<span class="mi">2438</span>
 </code></pre></div>
-<p>It is also possible to do:</p>
+      <p>It is also possible to do:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; len(Table(&#39;AME2012&#39;))
 2438
 </code></pre></div>
@@ -1228,7 +1151,7 @@
 
 
 <h2 class="doc doc-heading" id="masstable.masstable.Table.odd_even">
-<code class="highlight language-python"><span class="n">odd_even</span></code>
+<code class="highlight language-python"><span class="n">odd_even</span><span class="p">:</span> <span class="n">Table</span></code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-property"><code>property</code></small>
@@ -1328,7 +1251,7 @@ Z   N
 
 
 <h2 class="doc doc-heading" id="masstable.masstable.Table.s1n">
-<code class="highlight language-python"><span class="n">s1n</span></code>
+<code class="highlight language-python"><span class="n">s1n</span><span class="p">:</span> <span class="n">Table</span></code>
 
   <span class="doc doc-properties">
       <small class="doc doc-property doc-property-property"><code>property</code></small>
@@ -1598,7 +1521,7 @@ Z   N
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="s2">&quot;Init from a Series/Dataframe (df) of a file (name)&quot;</span>
     <span class="k">if</span> <span class="n">df</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># init from dataframe</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
@@ -1693,7 +1616,7 @@ Z   N
   <tbody>
       <tr>
         <td><code>nuclei</code></td>
-        <td><code></code></td>
+        <td><code>List[Tuple[int, int]]</code></td>
         <td><p>list of tuples
 A list where each element is tuple of the form (Z,N)</p></td>
         <td><em>required</em></td>
@@ -1712,7 +1635,7 @@ Z   N
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">at</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuclei</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">at</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nuclei</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Return a selection of the Table at positions given by ``nuclei``</span>
 
 <span class="sd">    Parameters:</span>
@@ -1777,35 +1700,35 @@ of the Table as a color scale</p>
       </tr>
       <tr>
         <td><code>cmap</code></td>
-        <td><code></code></td>
+        <td><code>str</code></td>
         <td><p>a matplotlib colormap
     default: 'RdBu'</p></td>
         <td><code>&#39;RdBu&#39;</code></td>
       </tr>
       <tr>
         <td><code>xlabel</code></td>
-        <td><code></code></td>
+        <td><code>str</code></td>
         <td><p>string representing the label of the x axis
 default: 'N'</p></td>
         <td><code>&#39;N&#39;</code></td>
       </tr>
       <tr>
         <td><code>ylabel</code></td>
-        <td><code></code></td>
+        <td><code>str</code></td>
         <td><p>string, default: 'Z'
 the label of the x axis</p></td>
         <td><code>&#39;Z&#39;</code></td>
       </tr>
       <tr>
         <td><code>grid_on</code></td>
-        <td><code></code></td>
-        <td><p>boolean, default: True,
+        <td><code>bool</code></td>
+        <td><p>(boolean), default: True,
 whether to draw the axes grid or not</p></td>
         <td><code>True</code></td>
       </tr>
       <tr>
         <td><code>colorbar</code></td>
-        <td><code></code></td>
+        <td><code>bool</code></td>
         <td><p>boolean, default: True
 whether to draw a colorbar or not</p></td>
         <td><code>True</code></td>
@@ -1836,12 +1759,12 @@ whether to draw a colorbar or not</p></td>
           <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">chart_plot</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span>
-    <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">,</span>
-    <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span>
-    <span class="n">grid_on</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">save_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span>
+    <span class="n">xlabel</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;N&quot;</span><span class="p">,</span>
+    <span class="n">ylabel</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;Z&quot;</span><span class="p">,</span>
+    <span class="n">grid_on</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">colorbar</span><span class="p">:</span><span class="nb">bool</span> <span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_path</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plot a nuclear chart with (N,Z) as axis and the values</span>
 <span class="sd">    of the Table as a color scale</span>
@@ -1856,7 +1779,7 @@ whether to draw a colorbar or not</p></td>
 <span class="sd">            default: &#39;N&#39;</span>
 <span class="sd">        ylabel: string, default: &#39;Z&#39;</span>
 <span class="sd">            the label of the x axis</span>
-<span class="sd">        grid_on: boolean, default: True,</span>
+<span class="sd">        grid_on: (boolean), default: True,</span>
 <span class="sd">            whether to draw the axes grid or not</span>
 <span class="sd">        colorbar: boolean, default: True</span>
 <span class="sd">            whether to draw a colorbar or not</span>
@@ -1926,7 +1849,7 @@ whether to draw a colorbar or not</p></td>
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">derived</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">relative_coords</span><span class="p">,</span> <span class="n">formula</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">derived</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">relative_coords</span><span class="p">:</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">formula</span><span class="p">:</span> <span class="n">Callable</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Helper function for derived quantities&quot;&quot;&quot;</span>
 
     <span class="n">dZ</span><span class="p">,</span> <span class="n">dN</span> <span class="o">=</span> <span class="n">relative_coords</span>
@@ -1972,9 +1895,8 @@ whether to draw a colorbar or not</p></td>
   <tbody>
       <tr>
         <td><code>relative_to</code></td>
-        <td><code></code></td>
-        <td><p>string
-a valid mass table name</p></td>
+        <td><code>str</code></td>
+        <td><p>a valid mass table name</p></td>
         <td><code>&#39;AME2003&#39;</code></td>
       </tr>
   </tbody>
@@ -1990,14 +1912,13 @@ Z    N
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="s2">&quot;AME2003&quot;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;AME2003&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate error difference</span>
 
 <span class="sd">    Parameters:</span>
 
-<span class="sd">        relative_to: string</span>
-<span class="sd">            a valid mass table name</span>
+<span class="sd">        relative_to: a valid mass table name</span>
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
@@ -2041,7 +1962,7 @@ Z    N
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
-<span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
     <span class="s2">&quot;Imports a mass table from a file&quot;</span>
 
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])[</span>
@@ -2077,7 +1998,7 @@ Z    N
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
           <div class="highlight"><pre><span></span><code><span class="nd">@classmethod</span>
-<span class="k">def</span> <span class="nf">from_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">from_name</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="s2">&quot;Imports a mass table from a file&quot;</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">package_dir</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -2178,9 +2099,8 @@ Name: Custom Table, dtype: float64
   <tbody>
       <tr>
         <td><code>table</code></td>
-        <td><code></code></td>
-        <td><p>Table
-Table object</p></td>
+        <td><code>Table</code></td>
+        <td><p>a Table object</p></td>
         <td><em>required</em></td>
       </tr>
   </tbody>
@@ -2190,14 +2110,13 @@ Table object</p></td>
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">:</span> <span class="n">Table</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Select nuclei which also belong to ``table``</span>
 
 <span class="sd">    Parameters:</span>
 
-<span class="sd">        table: Table</span>
-<span class="sd">            Table object</span>
+<span class="sd">        table: a Table object</span>
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
@@ -2290,7 +2209,7 @@ Table object</p></td>
   <tbody>
       <tr>
         <td><code>table</code></td>
-        <td><code></code></td>
+        <td><code>Table</code></td>
         <td><p>Table
 Table object from where nuclei should be removed</p></td>
         <td><em>required</em></td>
@@ -2304,7 +2223,7 @@ Table object from where nuclei should be removed</p></td>
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">not_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">not_in</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table</span><span class="p">:</span> <span class="n">Table</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Select nuclei not in table</span>
 
@@ -2357,13 +2276,12 @@ Table object from where nuclei should be removed</p></td>
   <tbody>
       <tr>
         <td><code>relative_to</code></td>
-        <td><code></code></td>
-        <td><p>string,
-a valid mass table name.</p></td>
+        <td><code>str</code></td>
+        <td><p>a valid mass table name.</p></td>
         <td><code>&#39;AME2003&#39;</code></td>
       </tr>
   </tbody>
-</table>      <h4 id="masstable.masstable.Table.rmse--example">Example<a class="headerlink" href="#masstable.masstable.Table.rmse--example" title="Permanent link">&para;</a></h4>
+</table>      <p>Example</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; template = &#39;{0:10}|{1:^6.2f}|{2:^6.2f}|{3:^6.2f}&#39;
 &gt;&gt;&gt; print(&#39;Model      &#39;, &#39;AME95 &#39;, &#39;AME03 &#39;, &#39;AME12 &#39;)  #  Table header
 ... for name in Table.names:
@@ -2386,16 +2304,14 @@ HFB14     | 0.84 | 0.83 | 1.02
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="o">=</span><span class="s2">&quot;AME2003&quot;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">rmse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_to</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s2">&quot;AME2003&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Calculate root mean squared error</span>
 
 <span class="sd">    Parameters:</span>
 
-<span class="sd">        relative_to: string,</span>
-<span class="sd">            a valid mass table name.</span>
+<span class="sd">        relative_to: a valid mass table name.</span>
 
 <span class="sd">    Example</span>
-<span class="sd">    -------</span>
 
 <span class="sd">        &gt;&gt;&gt; template = &#39;{0:10}|{1:^6.2f}|{2:^6.2f}|{3:^6.2f}&#39;</span>
 <span class="sd">        &gt;&gt;&gt; print(&#39;Model      &#39;, &#39;AME95 &#39;, &#39;AME03 &#39;, &#39;AME12 &#39;)  #  Table header</span>
@@ -2454,49 +2370,45 @@ HFB14     | 0.84 | 0.83 | 1.02
   <tbody>
       <tr>
         <td><code>condition</code></td>
-        <td><code></code></td>
-        <td><p>function
-Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)
+        <td><code>Callable</code></td>
+        <td><p>Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)
 must return a boolean value</p></td>
         <td><em>required</em></td>
       </tr>
       <tr>
         <td><code>name</code></td>
-        <td><code></code></td>
-        <td><p>string
-optional name for the resulting Table</p></td>
+        <td><code>str</code></td>
+        <td><p>optional name for the resulting Table</p></td>
         <td><code>&#39;&#39;</code></td>
       </tr>
   </tbody>
 </table>
 <p><strong>Examples:</strong></p>
-    
-      <hr />
-<p>Select all nuclei with A &gt; 160:</p>
+    <p>Select all nuclei with A &gt; 160:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; A_gt_160 = lambda Z,N: Z + N &gt; 160
 &gt;&gt;&gt; Table(&#39;AME2003&#39;).select(A_gt_160)
 </code></pre></div>
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">select</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Table</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Selects nuclei according to a condition on Z,N or M</span>
 
 <span class="sd">    Parameters:</span>
 
-<span class="sd">        condition: function</span>
+<span class="sd">        condition:</span>
 <span class="sd">            Can have one of the signatures f(M), f(Z,N) or f(Z, N, M)</span>
 <span class="sd">            must return a boolean value</span>
-<span class="sd">        name: string</span>
+<span class="sd">        name:</span>
 <span class="sd">            optional name for the resulting Table</span>
 
 <span class="sd">    Example:</span>
-<span class="sd">    --------</span>
-<span class="sd">    Select all nuclei with A &gt; 160:</span>
 
-<span class="sd">        &gt;&gt;&gt; A_gt_160 = lambda Z,N: Z + N &gt; 160</span>
-<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2003&#39;).select(A_gt_160)</span>
+<span class="sd">        Select all nuclei with A &gt; 160:</span>
+
+<span class="sd">            &gt;&gt;&gt; A_gt_160 = lambda Z,N: Z + N &gt; 160</span>
+<span class="sd">            &gt;&gt;&gt; Table(&#39;AME2003&#39;).select(A_gt_160)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">condition</span><span class="o">.</span><span class="vm">__code__</span><span class="o">.</span><span class="n">co_argcount</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">idx</span> <span class="o">=</span> <span class="p">[(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">M</span> <span class="ow">in</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">condition</span><span class="p">(</span><span class="n">M</span><span class="p">)]</span>
@@ -2541,32 +2453,29 @@ optional name for the resulting Table</p></td>
   <tbody>
       <tr>
         <td><code>path</code></td>
-        <td><code></code></td>
-        <td><p>string
-File path where the data should be saved to</p></td>
+        <td><code>str</code></td>
+        <td><p>File path where the data should be saved to</p></td>
         <td><em>required</em></td>
       </tr>
   </tbody>
-</table>      <h4 id="masstable.masstable.Table.to_file--example">Example<a class="headerlink" href="#masstable.masstable.Table.to_file--example" title="Permanent link">&para;</a></h4>
-<p>Export the last ten elements of AME2012 to a new file:</p>
+</table>
+<p><strong>Examples:</strong></p>
+    <p>Export the last ten elements of AME2012 to a new file:</p>
 <div class="highlight"><pre><span></span><code>&gt;&gt;&gt; Table(&#39;AME2012&#39;).tail(10).to_file(&#39;last_ten.txt&#39;)
 </code></pre></div>
 
         <details class="quote">
           <summary>Source code in <code>masstable/masstable.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">to_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Export the contents to a file as comma separated values.</span>
 
 <span class="sd">    Parameters:</span>
+<span class="sd">        path : File path where the data should be saved to</span>
 
-<span class="sd">        path : string</span>
-<span class="sd">            File path where the data should be saved to</span>
+<span class="sd">    Example:</span>
+<span class="sd">        Export the last ten elements of AME2012 to a new file:</span>
 
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    Export the last ten elements of AME2012 to a new file:</span>
-
-<span class="sd">        &gt;&gt;&gt; Table(&#39;AME2012&#39;).tail(10).to_file(&#39;last_ten.txt&#39;)</span>
+<span class="sd">            &gt;&gt;&gt; Table(&#39;AME2012&#39;).tail(10).to_file(&#39;last_ten.txt&#39;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Z   N   M</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
