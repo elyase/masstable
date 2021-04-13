@@ -153,10 +153,19 @@ For example:
 
 ### Plotting
 
+With altair (you need an additional `pip install altair`):
+
+    chart = Table('FRDM95').error()[8:14,8:20].chart_altair()
+    chart.save("chart.html")
+
+![](plotting_altair.png "Error chart altair")
+
+With matplotlib (you need an additional `pip install matplotlib`):
+
     import matplotlib.pyplot as plt
 
     fig, ax = plt.subplots()
     ax = Table('FRDM95').error().chart_plot(ax=ax)
     plt.show()
 
-![](plotting.png "Error chart")
+![](plotting.png "Error chart matplolib")

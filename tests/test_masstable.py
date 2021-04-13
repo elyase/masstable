@@ -31,5 +31,8 @@ def test_list_indexing():
     result = Table("AME2012").binding_energy[magic_nuclei]
     assert len(result) == 4
 
-    result = Table("AME2012").binding_energy.at(magic_nuclei)
-    assert len(result) == 4
+def test_condition_filtering():
+    A_equal_265 = lambda Z, N: Z + N == 265
+    result = Table("AME2003")[A_equal_265]
+    assert result.count == 1
+    

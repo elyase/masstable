@@ -176,6 +176,7 @@ class Table:
 
         """
         if isinstance(index, tuple) and len(index) == 2:
+            # can probably be simplified with pd.IndexSlice
             if isinstance(index[0], int):  # single N: "[82, :]"
                 startZ, stopZ = index[0], index[0]
 
@@ -206,6 +207,9 @@ class Table:
 
         if isinstance(index, list):
             return self.at(index)
+
+        if isinstance(index, Callable):
+            return self.select(index)
 
     def __setitem__(self, key: int, value: int) -> None:
         Z = key[0]
@@ -652,15 +656,49 @@ class Table:
             fig.savefig(save_path)
         return ax
 
-    # def chart_altair(self):
-    #     import altair as alt
+    def chart_altair(
+        self,
+        title: str = "",
+        width: int = 600,
+        path: str = None,
+        scheme="viridis",
+        fmt=".2f",
+        overlay_text: bool = True,
+        legend_orientation="vertical",
+    ):
+        import altair as alt
 
-    #     data = self.df.dropna().reset_index()
-    #     data["color"] = self.df.dropna().values
+        data = self.df.dropna().reset_index()[["Z", "N"]]
+        data["color"] = self.df.dropna().values
 
-    #     chart = (
-    #         alt.Chart(data)
-    #         .mark_rect()
-    #         .encode(alt.X("N"), alt.Y("Z"), alt.Color("color"))
-    #     )
-    #     chart.save("chart.html")
+        base = alt.Chart(data).encode(
+            alt.X("N:O", scale=alt.Scale(paddingInner=0)),
+            alt.Y("Z:O", scale=alt.Scale(paddingInner=0)),
+        )
+
+        chart = base.mark_rect().encode(
+            color=alt.Color(
+                "color:Q",
+                scale=alt.Scale(scheme=scheme),
+                legend=alt.Legend(direction=legend_orientation),
+                title=title,
+            )
+        )
+
+
+        if overlay_text:
+            text = base.mark_text(baseline="middle").encode(
+                text=alt.Text("color:Q", format=fmt)
+            )
+            chart = chart + text
+
+        x_range = data["N"].max() - data["N"].min()
+        y_range = data["Z"].max() - data["Z"].min()
+
+        height = round(width * y_range / x_range)
+        chart = chart.properties(width=width, height=height)
+
+        
+        if path is not None:
+            chart.save(path)
+        return chart
