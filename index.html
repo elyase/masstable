@@ -514,13 +514,19 @@ Z    N
 Name: s2n(DUZU), dtype: float64
 </code></pre></div>
 <h3 id="plotting">Plotting<a class="headerlink" href="#plotting" title="Permanent link">&para;</a></h3>
+<p>With altair (you need an additional <code>pip install altair</code>):</p>
+<div class="highlight"><pre><span></span><code>chart = Table(&#39;FRDM95&#39;).error()[8:14,8:20].chart_altair()
+chart.save(&quot;chart.html&quot;)
+</code></pre></div>
+<p><img alt="" src="plotting_altair.png" title="Error chart altair" /></p>
+<p>With matplotlib (you need an additional <code>pip install matplotlib</code>):</p>
 <div class="highlight"><pre><span></span><code>import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots()
 ax = Table(&#39;FRDM95&#39;).error().chart_plot(ax=ax)
 plt.show()
 </code></pre></div>
-<p><img alt="" src="plotting.png" title="Error chart" /></p>
+<p><img alt="" src="plotting.png" title="Error chart matplolib" /></p>
                 
               
               
