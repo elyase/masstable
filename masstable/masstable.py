@@ -673,7 +673,11 @@ class Table:
 
         base = alt.Chart(data).encode(
             alt.X("N:O", scale=alt.Scale(paddingInner=0)),
-            alt.Y("Z:O", scale=alt.Scale(paddingInner=0)),
+            alt.Y(
+                "Z:O",
+                scale=alt.Scale(paddingInner=0),
+                sort=alt.EncodingSortField("Z", order="descending"),
+            ),
         )
 
         chart = base.mark_rect().encode(
@@ -684,7 +688,6 @@ class Table:
                 title=title,
             )
         )
-
 
         if overlay_text:
             text = base.mark_text(baseline="middle").encode(
@@ -698,7 +701,6 @@ class Table:
         height = round(width * y_range / x_range)
         chart = chart.properties(width=width, height=height)
 
-        
         if path is not None:
             chart.save(path)
         return chart
